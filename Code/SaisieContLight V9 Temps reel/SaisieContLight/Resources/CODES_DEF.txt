@@ -1,0 +1,60 @@
+C1;EJECTE VISION|
+C2;EJECTE VISION|
+01;Longueur / hauteur|
+02;Diametre interieur / Alesage|
+03;Poids|
+04;Angle|
+05;Cannelure|
+06;Filetage|
+07;Faux-rond / concentricite|
+08;Battement|
+09;Parallelisme|
+10;Perpendicularite|
+11;Symetrie|
+12;Circularite|
+13;Etat de surface|
+14;Pieces ejectees vision|
+15;Cote sur bille (PIGNON)|
+16;Diametre exterieur|
+17;Pieces ejectees controle auto|
+30;Chocs|
+31;Empreinte|
+32;Grippage / rayure|
+33;Trou|
+34;Deformation|
+35;Piece sale / Depot|
+36;Oxydation|
+37;Traitement de surface non conforme|
+38;Surface abimee (CALAMINE)|
+39;Chocs non retouchable|
+40;Empreinte aiguille|
+41;Empreinte usinage|
+42;Empreinte forgeage|
+43;Empreinte TTH|
+50;Durete a coeur non conforme|
+51;Durete de surface non conforme|
+52;Filiation non conforme|
+53;Structure non conforme|
+54;Composition chimique non conforme|
+55;Controle magnatest non conforme|
+58;Lopins chauffes|
+59;Autre defaut metalurgique|
+70;Cassure / fissure|
+71;Replis|
+72;Impuretes inclusionnaires|
+80;Surplus matiere|
+81;Manque matiere|
+82;Double operation|
+83;Manque operation|
+84;Assemblage non conforme|
+89;Divers|
+90;Melange|
+91;Pieces demarrage / reglage|
+92;Controle destructif|
+93;Defauts dus a outillage non conforme|
+94;Probleme logistique|
+95;Identification non conforme|
+96;Documentation non conforme|
+97;Prototype / E.I. non livrable|
+98;Arret produit|
+99;DEFAUT A IDENTIFIER AUTRE SERV
