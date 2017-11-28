@@ -594,7 +594,9 @@ Public Class UploadManager
 
                                     Dim lecture As Boolean = False
 
-                                    Dim reqSelect As New SqlCommand("select 1 from reb_ret where rrcodesaisie = " & codeSaisieActu & " and rrid = '" & res(0) & "' and rrcodedef = '" & res(1) & "' and rrnummach = '" & res(3) & "'", New SqlConnection(connS3SQL))
+                                    Debug.WriteLine("!!!!!!  " & codeAInserer)
+
+                                    Dim reqSelect As New SqlCommand("select 1 from reb_ret where rrcodesaisie = " & codeAInserer & " and rrid = '" & res(0) & "' and rrcodedef = '" & res(1) & "' and rrnummach = '" & res(3) & "'", New SqlConnection(connS3SQL))
                                     Try
                                         reqSelect.Connection.Open()
                                         If reqSelect.ExecuteReader.Read() Then
