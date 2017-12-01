@@ -1,0 +1,67 @@
+﻿<UserControl x:Class="TestAffichage.View.UCSelect"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:utils="clr-namespace:TestAffichage.Utils"
+        xmlns:local="clr-namespace:TestAffichage.ViewModel"
+        Height="Auto" Width="Auto"
+        Name="UcPresence">
+    <DockPanel>
+        <TreeView Name="TV1"  ItemsSource="{Binding Secteurs, Mode=TwoWay}">
+            <TreeView.ItemContainerStyle>
+                <Style TargetType="{x:Type TreeViewItem}">
+                    <Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=TwoWay}" />
+                    <Setter Property="IsSelected" Value="{Binding IsInitiallySelected, Mode=OneTime}" />
+                    <!--<Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />-->
+                    <Setter Property="FontWeight" Value="Normal" />
+                    <Setter Property="KeyboardNavigation.AcceptsReturn" Value="True" />
+                    <Setter Property="utils:VirtualToggleButton.IsVirtualToggleButton" Value="True" />
+                    <Setter Property="utils:VirtualToggleButton.IsChecked" Value="{Binding IsChecked}" />
+
+                    <Style.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="FontWeight" Value="Bold" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </TreeView.ItemContainerStyle>
+
+            <TreeView.Resources>
+                <HierarchicalDataTemplate 
+                  DataType="{x:Type local:SecteurVM}" 
+                  ItemsSource="{Binding Children, Mode=OneTime}"
+                  >
+                    <StackPanel Orientation="Horizontal">
+                        <CheckBox
+                            Focusable="False" 
+                            IsChecked="{Binding IsChecked, Mode=TwoWay}" 
+                            VerticalAlignment="Center" />
+                        <TextBlock Text="{Binding Code}" />
+                    </StackPanel>
+                </HierarchicalDataTemplate>
+
+                <HierarchicalDataTemplate 
+                  DataType="{x:Type local:PosteDeChargeVM}" 
+                  ItemsSource="{Binding Children, Mode=Default}"
+                  >
+                    <StackPanel Orientation="Horizontal">
+                        <CheckBox
+                            Focusable="False" 
+                            IsChecked="{Binding IsChecked, Mode=TwoWay}" 
+                            VerticalAlignment="Center" />
+                        <TextBlock Text="{Binding Code}" />
+                    </StackPanel>
+                </HierarchicalDataTemplate>
+
+                <DataTemplate DataType="{x:Type local:MachineVM}">
+                    <StackPanel Orientation="Horizontal">
+                        <CheckBox
+                            Focusable="False" 
+                            IsChecked="{Binding IsChecked, Mode=TwoWay}" 
+                            VerticalAlignment="Center" />
+                        <TextBlock Text="{Binding NoMachine}" />
+                    </StackPanel>
+                </DataTemplate>
+            </TreeView.Resources>
+        </TreeView>
+    </DockPanel>
+</UserControl>

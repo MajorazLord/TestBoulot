@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "PresencePointage", "PresencePointage\PresencePointage.vbproj", "{3DC13A8E-B41B-4BE0-BA0A-B4A4E314EC9E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3DC13A8E-B41B-4BE0-BA0A-B4A4E314EC9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DC13A8E-B41B-4BE0-BA0A-B4A4E314EC9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DC13A8E-B41B-4BE0-BA0A-B4A4E314EC9E}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{3DC13A8E-B41B-4BE0-BA0A-B4A4E314EC9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DC13A8E-B41B-4BE0-BA0A-B4A4E314EC9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DC13A8E-B41B-4BE0-BA0A-B4A4E314EC9E}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

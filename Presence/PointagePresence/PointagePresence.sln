@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PointagePresence", "PointagePresence\PointagePresence.csproj", "{F84158A9-FC68-41E7-BC83-34B39739E38E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F84158A9-FC68-41E7-BC83-34B39739E38E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F84158A9-FC68-41E7-BC83-34B39739E38E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F84158A9-FC68-41E7-BC83-34B39739E38E}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{F84158A9-FC68-41E7-BC83-34B39739E38E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F84158A9-FC68-41E7-BC83-34B39739E38E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F84158A9-FC68-41E7-BC83-34B39739E38E}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

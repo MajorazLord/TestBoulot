@@ -1,0 +1,17 @@
+﻿<Window x:Class="TestAffichage.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Accueil" Height="150" Width="300"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Button Grid.Column="0" Grid.Row="0" Name="BtnPresence" Content="Presence" FontSize="14" Click="BtnPresence_OnClick"/>
+        <Button Grid.Column="1" Grid.Row="0" Name="BtnCalendrier" Content="Calendrier Machine" FontSize="14" Click="BtnCalendrier_OnClick"/>
+    </Grid>
+</Window>

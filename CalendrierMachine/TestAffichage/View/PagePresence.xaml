@@ -1,0 +1,100 @@
+﻿<Window x:Class="TestAffichage.View.PagePresence"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="clr-namespace:TestAffichage.View"
+        xmlns:viewModel="clr-namespace:TestAffichage.ViewModel"
+        xmlns:local="clr-namespace:TestAffichage.Model"
+        xmlns:utils="clr-namespace:TestAffichage.Utils"
+        Title="Presence (Quelqu'un devant le poste de charge ?)" 
+        Height="550" Width="470" 
+        WindowStartupLocation="CenterScreen"
+        Name="Fenetre">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <DatePicker x:Name="DatePickerJours" SelectedDate="{Binding DatePresence, Mode=TwoWay}"/>
+        
+        <Grid Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.Resources>
+                <Style x:Key="lineStyle" TargetType="Line">
+                    <Setter Property="Stroke" Value="DarkGray" />
+                    <Setter Property="Stretch" Value="Fill" />
+                    <Setter Property="Grid.ZIndex" Value="100" />
+                </Style>
+
+                <Style x:Key="verticalLineStyle" TargetType="Line" BasedOn="{StaticResource lineStyle}">
+                    <Setter Property="Y2" Value="1" />
+                    <Setter Property="HorizontalAlignment" Value="Right" />
+                    <Setter Property="Grid.RowSpan"    
+                            Value="{Binding Path=RowDefinitions.Count, RelativeSource={RelativeSource AncestorType=Grid}}"/>
+                </Style>
+                <Style x:Key="horizontalLineStyle" TargetType="Line" BasedOn="{StaticResource lineStyle}">
+                    <Setter Property="X2" Value="1" />
+                    <Setter Property="VerticalAlignment" Value="Bottom" />
+                    <Setter Property="Grid.ColumnSpan"  
+                            Value="{Binding    
+                                Path=ColumnDefinitions.Count,   
+                                RelativeSource={RelativeSource AncestorType=Grid}}"/>
+                </Style>
+            </Grid.Resources>
+            <Line Grid.Column="0" Style="{StaticResource verticalLineStyle}"/>
+            <Line Grid.Column="1" Style="{StaticResource verticalLineStyle}"/>
+            <Line Grid.Column="2" Style="{StaticResource verticalLineStyle}"/>
+            <Line Grid.Column="3" Style="{StaticResource verticalLineStyle}"/>
+            <Line Grid.Row="1"  Style="{StaticResource horizontalLineStyle}"/>
+            
+            <StackPanel Orientation="Vertical">
+                <RadioButton x:Name="Rb1" HorizontalAlignment="Center" Margin="0,2,0,0" GroupName="RbHoraire"/>
+                <Label Content="MAT" Height="15" Padding="0" Margin="0,0,0,2" HorizontalAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Grid.Column="1">
+                <RadioButton x:Name="Rb2" HorizontalAlignment="Center" Margin="0,2,0,0" GroupName="RbHoraire"/>
+                <Label Content="SOI" Height="15" Padding="0" HorizontalAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Grid.Column="2">
+                <RadioButton x:Name="Rb3" HorizontalAlignment="Center" Margin="0,2,0,0" GroupName="RbHoraire" Click="Rb3_Rb5_OnClick"/>
+                <Label Content="NUI" Height="15" Padding="0" HorizontalAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Grid.Column="3">
+                <RadioButton x:Name="Rb4" HorizontalAlignment="Center" Margin="0,2,0,0" GroupName="RbHoraire"/>
+                <Label Content="WE1" Height="15" Padding="0" HorizontalAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Grid.Column="4">
+                <RadioButton x:Name="Rb5" HorizontalAlignment="Center" Margin="0,2,0,0" GroupName="RbHoraire" Click="Rb3_Rb5_OnClick"/>
+                <Label Content="WE2" Height="15" Padding="0" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </Grid>
+        
+
+
+        <AdornerDecorator Grid.Row="2">
+            <ComboBox Name="CbChoixSecteur" Loaded="FrameworkElement_OnLoaded"
+                  ItemsSource="{Binding CurrentSect}"
+                  VerticalContentAlignment="Center"
+                  DisplayMemberPath="Code"
+                  SelectionChanged="UCPresenceCtrl_OnChanged"
+                  Margin="0,5,0,0">
+                <utils:WatermarkService.Watermark>
+                    <TextBlock>Selectionner le secteur ...</TextBlock>
+                </utils:WatermarkService.Watermark>
+            </ComboBox>
+        </AdornerDecorator>
+        <ScrollViewer Grid.Row="3" VerticalScrollBarVisibility="Auto" >
+            <controls:UCPresence x:Name="UCPresenceCtrl" VerticalContentAlignment="Top" Height="Auto" Width="Auto" RenderTransformOrigin="0.5,0.5"/>
+        </ScrollViewer>
+        <Button Name="BtnConfirmerSelect" Grid.Row="4" Content="Valider la saisie" FontSize="18" Click="BtnConfirmerSelect_OnClick"/>
+    </Grid>
+</Window>

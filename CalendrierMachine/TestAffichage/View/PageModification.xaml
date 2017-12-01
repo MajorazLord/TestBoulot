@@ -1,0 +1,270 @@
+﻿<Window x:Class="TestAffichage.View.PageModification"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:converter="clr-namespace:TestAffichage.Utils.Converter"
+        xml:lang="fr-FR"
+        Title="PageModification" Height="350" Width="890"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="110*" />
+            <RowDefinition Height="329*"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.Resources>
+            <Style x:Key="lineStyle" TargetType="Line">
+                <Setter Property="Stroke" Value="DarkGray" />
+                <Setter Property="Stretch" Value="Fill" />
+                <Setter Property="Grid.ZIndex" Value="100" />
+            </Style>
+
+            <converter:TestConverter x:Key="TestConverter"/>
+
+            <Style x:Key="horizontalLineStyle" TargetType="Line" BasedOn="{StaticResource lineStyle}">
+                <Setter Property="X2" Value="1" />
+                <Setter Property="VerticalAlignment" Value="Bottom" />
+                <Setter Property="Grid.ColumnSpan"  
+                        Value="{Binding    
+                                Path=ColumnDefinitions.Count,   
+                                RelativeSource={RelativeSource AncestorType=Grid}}"/>
+            </Style>
+
+            <Style x:Key="verticalLineStyle" TargetType="Line" BasedOn="{StaticResource lineStyle}">
+                <Setter Property="Y2" Value="1" />
+                <Setter Property="HorizontalAlignment" Value="Right" />
+                <Setter Property="Grid.RowSpan"    
+                        Value="{Binding    
+                                Path=RowDefinitions.Count,   
+                                RelativeSource={RelativeSource AncestorType=Grid}}"/>
+            </Style>
+        </Grid.Resources>
+
+        <Line Grid.Column="0" Grid.RowSpan="1" Style="{StaticResource verticalLineStyle}"/>
+        <Line Grid.Column="1" Grid.RowSpan="1" Style="{StaticResource verticalLineStyle}"/>
+
+        <Line Grid.Row="0" Grid.ColumnSpan="3" Style="{StaticResource horizontalLineStyle}"/>
+
+
+        <StackPanel Grid.Row="0" Grid.Column="0" Height="Auto" Width="Auto" VerticalAlignment="Center">
+            <Button Name="BtnSelecMachines" Content="Selectionner les machines concernées" Height="Auto" Width="Auto" Margin="10,10,10,0" FontSize="20" Click="BtnSelecMachines_OnClick"/>
+            <StackPanel Height="Auto" Width="Auto" Margin="20,0,0,0" Orientation="Horizontal" HorizontalAlignment="Left" >
+                <Label Name="LbNbMSelected" Content ="{Binding NbMachinesSelected}" FontSize="16"/>
+                <Label Name="LbDetails" Content="machines selectionnées" FontSize="16"/>
+            </StackPanel>
+        </StackPanel>
+        <Label Name="LbDate" FontSize="24" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="{Binding DateDuJour, StringFormat='{}{0:dddd  dd/MM/yyyy}'}"/>
+        </Label>
+        <StackPanel Orientation="Vertical" Grid.Column="2">
+            <TextBlock Text="Jour férié :" FontSize="18" HorizontalAlignment="Center" FontWeight="Bold"/>
+            <ToggleButton x:Name="ToggleBOuiNon" HorizontalAlignment="Center" VerticalAlignment="Center" Height="40" Margin="25,2" Click="ToggleBOuiNon_OnClick">
+                <ToggleButton.Style>
+                    <Style TargetType="{x:Type ToggleButton}">
+                        <Setter Property="Background" Value="#d9d9d9"/>
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="BorderBrush" Value="#d9d9d9" />
+                        <Setter Property="BorderThickness" Value="0"/>
+                        <!--<Setter Property="FocusVisualStyle" Value="{StaticResource MyFocusVisualStyte}" />-->
+                        <Setter Property="FontSize" Value="13" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                                    <Grid >
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="30*" />
+                                            <ColumnDefinition Width="30*" />
+                                            <ColumnDefinition Width="30*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="30*" />
+                                            <RowDefinition Height="2*" />
+                                            <RowDefinition Height="2*" />
+                                        </Grid.RowDefinitions>
+                                        <VisualStateManager.VisualStateGroups>
+                                            <VisualStateGroup x:Name="CheckStates">
+                                                <VisualState x:Name="Checked">
+                                                    <Storyboard>
+                                                        <DoubleAnimation Storyboard.TargetName="ShapeOn" Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:0.3" />
+                                                        <DoubleAnimation Storyboard.TargetName="ShapeOff" Storyboard.TargetProperty="Opacity" To="0" Duration="0:0:0.3" />
+                                                    </Storyboard>
+                                                </VisualState>
+                                                <VisualState x:Name="Unchecked">
+                                                    <Storyboard>
+                                                        <DoubleAnimation Storyboard.TargetName="ShapeOff" Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:0.3" />
+                                                        <DoubleAnimation Storyboard.TargetName="ShapeOn" Storyboard.TargetProperty="Opacity" To="0" Duration="0:0:0.3" />
+                                                    </Storyboard>
+                                                </VisualState>
+                                                <VisualState x:Name="Indeterminate"/>
+                                            </VisualStateGroup>
+                                        </VisualStateManager.VisualStateGroups>
+
+                                        <Border Grid.ColumnSpan="3"
+									BorderThickness="2"
+									BorderBrush="{TemplateBinding Background}"
+									Background="{TemplateBinding Background}"/>
+
+                                        <Path x:Name="ShapeOff"
+									Grid.Column="0" Grid.ColumnSpan="2"
+									Data="M0,0 L60,0 30,30 0,30 z"
+									Stretch="Fill"
+									Fill="#c2c2c2" HorizontalAlignment="Left" />
+                                        <Path x:Name="ShapeOn"
+									Grid.Column="1" Grid.ColumnSpan="2"
+									Data="M0,0 L30,0 30,30 -30,30 z" 
+									Stretch="Fill"
+									Fill="#38abcf" HorizontalAlignment="Right" />
+
+                                        <Border x:Name="BorderLeftDown"
+									Grid.Row="2" Grid.Column="0"
+									Background="{TemplateBinding BorderBrush}"
+									Opacity="{Binding Opacity, ElementName=ShapeOff}"/>
+
+                                        <Border x:Name="BorderRightDown"
+									Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"
+									Background="{TemplateBinding BorderBrush}"
+									Opacity="{Binding Opacity, ElementName=ShapeOn}"/>
+
+                                        <TextBlock Text="OUI" Grid.Column="2"
+									x:Name="TextBlockOn"
+									FontWeight="Bold"
+									Foreground="{TemplateBinding Foreground}"
+									VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,5,0"
+									Opacity="{Binding Opacity, ElementName=ShapeOn}"/>
+
+                                        <TextBlock Text="NON" Grid.Column="0"
+									x:Name="TextBlockOff"
+									FontWeight="Bold"
+									Foreground="{TemplateBinding Foreground}"
+									VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5,0,0,0"
+									Opacity="{Binding Opacity, ElementName=ShapeOff}"/>
+                                    </Grid>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsEnabled" Value="False">
+                                            <Setter Property="Foreground" Value="#d9d9d9" />
+                                            <Setter TargetName="ShapeOn" Property="Fill" Value="#c2c2c2" />
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ToggleButton.Style>
+            </ToggleButton>
+        </StackPanel>
+
+        <Button Name="BtnAnnuler" Content="Annuler" Grid.Column="0" Grid.Row="2" Width="Auto" FontSize="18" Click="BtnAnnuler_OnClick"/>
+        <Button Name="BtnValider" Content="Valider" Grid.Column="1" Grid.Row="2" Width="Auto" FontSize="18" Grid.ColumnSpan="2" Click="BtnValider_OnClick"/>
+
+        <Grid Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Line Grid.Row="0" Grid.Column="0" Style="{StaticResource verticalLineStyle}"/>
+            <Line Grid.Row="0" Grid.Column="1" Style="{StaticResource verticalLineStyle}"/>
+
+            <StackPanel Height="Auto" Width="Auto" Grid.Column="0" Orientation="Vertical" HorizontalAlignment="Center">
+                <!-- Visibility="Collapsed" -->
+                <Label Content="1" HorizontalAlignment="Center" Margin="0,0,0,-20" FontSize="18" FontWeight="Bold"/>
+                <StackPanel Height="Auto" Width="Auto" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,25,0,16">
+                    <Label Name="LbPoste1" Content="Poste : " FontSize="16"/>
+                    <ComboBox Name="CbPoste1" FontSize="16" HorizontalContentAlignment="Center" Width="200" ItemsSource="{Binding LesPostes}"/>
+                </StackPanel>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="15"/>
+                        <RowDefinition Height="2*"/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0" HorizontalAlignment="Right" Grid.Column="0" Name="LbHeureD1" Content="Heure début : " FontSize="16"/>
+                    <StackPanel Grid.Row="0" Grid.Column="1" Height="Auto" Width="Auto" Orientation="Horizontal" Grid.ColumnSpan="2">
+                        <TextBox x:Name="Tb1D1" Text="" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="16" Width="23" PreviewTextInput="Tb1F1_OnPreviewTextInput" MaxLength="2"/>
+                        <Label Name="LbHD1" Content="H" FontSize="16"/>
+                        <TextBox x:Name="Tb1D2" Text="" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="16" Width="23" PreviewTextInput="Tb1F1_OnPreviewTextInput" MaxLength="2"/>
+                    </StackPanel>
+
+                    <Label Grid.Row="2" Grid.Column="0"  Name="LbHeureF1" Content="Heure fin : " FontSize="16" HorizontalAlignment="Right"/>
+                    <StackPanel Grid.Row="2" Grid.Column="1" Height="Auto" Width="Auto" Orientation="Horizontal">
+                        <TextBox x:Name="Tb1F1" Text="" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="16" Width="23" PreviewTextInput="Tb1F1_OnPreviewTextInput" MaxLength="2"/>
+                        <Label Name="LbHF1" Content="H" FontSize="16"/>
+                        <TextBox x:Name="Tb1F2" Text="" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="16" Width="23" PreviewTextInput="Tb1F1_OnPreviewTextInput" MaxLength="2"/>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+
+            <StackPanel Height="Auto" Width="Auto" Grid.Column="1" Orientation="Vertical" HorizontalAlignment="Center">
+                <Label Content="2" HorizontalAlignment="Center" Margin="0,0,0,-20" FontSize="18" FontWeight="Bold"/>
+                <StackPanel Height="Auto" Width="Auto" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,25,0,16">
+                    <Label Name="LbPoste2" Content="Poste : " FontSize="16"/>
+                    <ComboBox Name="CbPoste2" FontSize="16" HorizontalContentAlignment="Center" Width="200"  ItemsSource="{Binding LesPostes}"/>
+                </StackPanel>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="15"/>
+                        <RowDefinition Height="2*"/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0" HorizontalAlignment="Right" Grid.Column="0" Name="LbHeureD2" Content="Heure début : " FontSize="16"/>
+                    <StackPanel Grid.Row="0" Grid.Column="1" Height="Auto" Width="Auto" Orientation="Horizontal">
+                        <TextBox x:Name="Tb2D1" Text="" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="16" Width="23"  PreviewTextInput="Tb1F1_OnPreviewTextInput" MaxLength="2"/>
+                        <Label Name="LbHD2" Content="H" FontSize="16"/>
+                        <TextBox x:Name="Tb2D2" Text="" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="16" Width="23" PreviewTextInput="Tb1F1_OnPreviewTextInput" MaxLength="2"/>
+                    </StackPanel>
+
+                    <Label Grid.Row="2" Grid.Column="0"  Name="LbHeureF2" Content="Heure fin : " FontSize="16" HorizontalAlignment="Right"/>
+                    <StackPanel Grid.Row="2" Grid.Column="1" Height="Auto" Width="Auto" Orientation="Horizontal">
+                        <TextBox x:Name="Tb2F1" Text="" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="16" Width="23" PreviewTextInput="Tb1F1_OnPreviewTextInput" MaxLength="2"/>
+                        <Label Name="LbHF2" Content="H" FontSize="16"/>
+                        <TextBox x:Name="Tb2F2" Text="" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="16" Width="23" PreviewTextInput="Tb1F1_OnPreviewTextInput" MaxLength="2"/>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+
+            <StackPanel Height="Auto" Width="Auto" Grid.Column="2" Orientation="Vertical" HorizontalAlignment="Center">
+                <Label Content="3" HorizontalAlignment="Center" Margin="0,0,0,-20" FontSize="18" FontWeight="Bold"/>
+                <StackPanel Height="Auto" Width="Auto" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,25,0,16">
+                    <Label Name="LbPoste3" Content="Poste : " FontSize="16"/>
+                    <ComboBox Name="CbPoste3" FontSize="16" HorizontalContentAlignment="Center" Width="200"  ItemsSource="{Binding LesPostes}"/>
+                </StackPanel>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="15"/>
+                        <RowDefinition Height="2*"/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0" HorizontalAlignment="Right" Grid.Column="0" Name="LbHeureD3" Content="Heure début : " FontSize="16"/>
+                    <StackPanel Grid.Row="0" Grid.Column="1" Height="Auto" Width="Auto" Orientation="Horizontal">
+                        <TextBox x:Name="Tb3D1" Text="" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="16" Width="23" PreviewTextInput="Tb1F1_OnPreviewTextInput" MaxLength="2"/>
+                        <Label Name="LbHD3" Content="H" FontSize="16"/>
+                        <TextBox x:Name="Tb3D2" Text="" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="16" Width="23" PreviewTextInput="Tb1F1_OnPreviewTextInput" MaxLength="2"/>
+                    </StackPanel>
+
+                    <Label Grid.Row="2" Grid.Column="0"  Name="LbHeureF3" Content="Heure fin : " FontSize="16" HorizontalAlignment="Right"/>
+                    <StackPanel Grid.Row="2" Grid.Column="1" Height="Auto" Width="Auto" Orientation="Horizontal">
+                        <TextBox x:Name="Tb3F1" Text="" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="16" Width="23" PreviewTextInput="Tb1F1_OnPreviewTextInput" MaxLength="2"/>
+                        <Label Name="LbHF3" Content="H" FontSize="16"/>
+                        <TextBox x:Name="Tb3F2" Text="" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="16" Width="23" PreviewTextInput="Tb1F1_OnPreviewTextInput" MaxLength="2"/>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

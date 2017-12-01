@@ -1,0 +1,173 @@
+﻿<Window x:Class="TestAffichage.View.PageCharge_CodeOuv"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="PageCharge_CodeOuv" Height="350" Width="1000">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="3.1*"/>
+            <RowDefinition Height="0.9*"/>
+        </Grid.RowDefinitions>
+        <Button Name="BtnSelect"  Content="Selectionner les machines concernées" Click="BtnSelect_OnClick" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="15,3"/>
+        <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <Label Name="TbNbMachine" Width="30" Height="30" VerticalAlignment="Center" FontSize="16" HorizontalContentAlignment="Center"/>
+            <Label VerticalAlignment="Center" FontSize="16" Content="machines selectionnées" VerticalContentAlignment="Center"/>
+        </StackPanel>
+        <Grid Height="Auto" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" Width="Auto" Margin="10,0">
+            <Grid.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="BorderBrush" Value="Black" />
+                    <Setter Property="BorderThickness" Value="1" />
+                </Style>
+            </Grid.Resources>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.5*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.6*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Border Grid.Row="1" Grid.Column="0">
+                <Label Content="Code d'ouverture" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
+            </Border>
+            <Border Grid.Row="2" Grid.Column="0">
+                <Label Content="Charge (h)" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
+            </Border>
+
+            <Border Grid.Row="0" Grid.Column="1">
+                <Label Content="Janvier" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" />
+            </Border>
+            <Border Grid.Row="0" Grid.Column="2">
+                <Label Content="Février" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" />
+            </Border>
+            <Border Grid.Row="0" Grid.Column="3">
+                <Label Content="Mars" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" />
+            </Border>
+            <Border Grid.Row="0" Grid.Column="4">
+                <Label Content="Avril" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" />
+            </Border>
+            <Border Grid.Row="0" Grid.Column="5">
+                <Label Content="Mai" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" />
+            </Border>
+            <Border Grid.Row="0" Grid.Column="6">
+                <Label Content="Juin" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" />
+            </Border>
+            <Border Grid.Row="0" Grid.Column="7">
+                <Label Content="Juillet" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" />
+            </Border>
+            <Border Grid.Row="0" Grid.Column="8">
+                <Label Content="Aout" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" />
+            </Border>
+            <Border Grid.Row="0" Grid.Column="9">
+                <Label Content="Septembre" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" />
+            </Border>
+            <Border Grid.Row="0" Grid.Column="10">
+                <Label Content="Octobre" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" />
+            </Border>
+            <Border Grid.Row="0" Grid.Column="11">
+                <Label Content="Novembre" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" />
+            </Border>
+            <Border Grid.Row="0" Grid.Column="12">
+                <Label Content="Décembre" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" />
+            </Border>
+          
+            <!-- $$$$$$$$$$   LIGNE CODE OUVERTURE   $$$$$$$$$$$-->
+
+            <Border Grid.Row="1" Grid.Column="1">
+                <ComboBox Name="CbJanvCodeOuv" SelectedIndex="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="2">
+                <ComboBox Name="CbFevrCodeOuv" SelectedIndex="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="3">
+                <ComboBox Name="CbMarsCodeOuv" SelectedIndex="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="4">
+                <ComboBox Name="CbAvrilCodeOuv" SelectedIndex="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="5">
+                <ComboBox Name="CbMaiCodeOuv" SelectedIndex="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="6">
+                <ComboBox Name="CbJuinCodeOuv" SelectedIndex="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="7">
+                <ComboBox Name="CbJuilCodeOuv" SelectedIndex="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="8">
+                <ComboBox Name="CbAoutCodeOuv" SelectedIndex="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="9">
+                <ComboBox Name="CbSeptCodeOuv" SelectedIndex="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="10">
+                <ComboBox Name="CbOctoCodeOuv" SelectedIndex="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="11">
+                <ComboBox Name="CbNoveCodeOuv" SelectedIndex="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="12">
+                <ComboBox Name="CbDeceCodeOuv" SelectedIndex="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            </Border>
+
+            <!-- $$$$$$$$$$$$$$$$   LIGNE CHARGE   $$$$$$$$$$$$$$$$$$$-->
+
+            <Border Grid.Row="2" Grid.Column="1">
+                <TextBox Name="TbJanvCharge" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Center" />
+            </Border>
+            <Border Grid.Row="2" Grid.Column="2">
+                <TextBox Name="TbFevrCharge" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Center" />
+            </Border>
+            <Border Grid.Row="2" Grid.Column="3">
+                <TextBox Name="TbMarsCharge" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Center" />
+            </Border>
+            <Border Grid.Row="2" Grid.Column="4">
+                <TextBox Name="TbAvriCharge" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Center" />
+            </Border>
+            <Border Grid.Row="2" Grid.Column="5">
+                <TextBox Name="TbMaiCharge" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Center" />
+            </Border>
+            <Border Grid.Row="2" Grid.Column="6">
+                <TextBox Name="TbJuinCharge" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Center" />
+            </Border>
+            <Border Grid.Row="2" Grid.Column="7">
+                <TextBox Name="TbJuilCharge" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Center" />
+            </Border>
+            <Border Grid.Row="2" Grid.Column="8">
+                <TextBox Name="TbAoutCharge" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Center" />
+            </Border>
+            <Border Grid.Row="2" Grid.Column="9">
+                <TextBox Name="TbSeptCharge" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Center" />
+            </Border>
+            <Border Grid.Row="2" Grid.Column="10">
+                <TextBox Name="TbOctoCharge" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Center" />
+            </Border>
+            <Border Grid.Row="2" Grid.Column="11">
+                <TextBox Name="TbNoveCharge" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Center" />
+            </Border>
+            <Border Grid.Row="2" Grid.Column="12">
+                <TextBox Name="TbDeceCharge" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Center" />
+            </Border>
+        </Grid>
+        <Button Name="BtnAnnuler" Content="Annuler" Grid.Row="3" Width="Auto" Height="35" VerticalAlignment="Bottom" Click="BtnAnnuler_OnClick"/>
+        <Button Name="BtnValider" Content="Valider" Grid.Column="1" Grid.Row="3" Width="Auto" Height="35" VerticalAlignment="Bottom" Click="BtnValider_OnClick"/>
+    </Grid>
+</Window>
