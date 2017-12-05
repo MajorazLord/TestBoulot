@@ -1,25 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.Web.ModelBinding;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using TestAffichage.DataAccess;
 using TestAffichage.ViewModel;
-using Exception = TestAffichage.Model.Exception;
 
 namespace TestAffichage.View
 {
@@ -29,6 +16,18 @@ namespace TestAffichage.View
     public partial class PageModification : INotifyPropertyChanged
     {
         private PagePrincipale _mainView;
+        
+        private List<ExceptionVM> _lesExceptionsToSave;
+        public List<ExceptionVM> LesExceptionsToSave
+        {
+            get { return _lesExceptionsToSave; }
+            private set
+            {
+                _lesExceptionsToSave = value;
+                OnPropertyChanged("LesExceptionsToSave");
+            }
+        }
+
         public Label LbChiffre;
         private DateTime _dateDuJour;
         public DateTime DateDuJour
@@ -90,7 +89,12 @@ namespace TestAffichage.View
 
         private void BtnAnnuler_OnClick(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            MessageBoxResult res = MessageBox.Show("Êtes-vous sur de vouloir annuler la saisie d'exception ?","Warning : Arret Saisie", MessageBoxButton.YesNo, MessageBoxImage.Information);
+            //Debug.WriteLine(res);
+            if (res == MessageBoxResult.Yes)
+            {
+                this.Close();    
+            }
         }
 
         private void BtnSelecMachines_OnClick(object sender, RoutedEventArgs e)
@@ -139,7 +143,7 @@ namespace TestAffichage.View
                     MessageBoxImage.Warning);
                 return;
             }
-            List<ExceptionVM> lesExceptionsToSave = new List<ExceptionVM>();
+            LesExceptionsToSave = new List<ExceptionVM>();
             if(VerifContenuSaisie()){
                 ExceptionVM exeptToSave1 = new ExceptionVM(LesMachinesSelected, DateDuJour,
                     CbPoste1.SelectedItem.ToString(), new TimeSpan(int.Parse(Tb1D1.Text), int.Parse(Tb1D2.Text), 0),
@@ -148,17 +152,19 @@ namespace TestAffichage.View
                     CbPoste2.SelectedItem.ToString(), new TimeSpan(int.Parse(Tb2D1.Text), int.Parse(Tb2D2.Text), 0),
                     new TimeSpan(int.Parse(Tb2F1.Text), int.Parse(Tb2F2.Text), 0));
 
-                lesExceptionsToSave.Add(exeptToSave1);
-                lesExceptionsToSave.Add(exeptToSave2);
+                LesExceptionsToSave.Add(exeptToSave1);
+                LesExceptionsToSave.Add(exeptToSave2);
 
                 if (CbPoste3.SelectedItem != null)
                 {
                     ExceptionVM exeptToSave3 = new ExceptionVM(LesMachinesSelected, DateDuJour,
                         CbPoste3.SelectedItem.ToString(), new TimeSpan(int.Parse(Tb3D1.Text), int.Parse(Tb3D2.Text), 0),
                         new TimeSpan(int.Parse(Tb3F1.Text), int.Parse(Tb3F2.Text), 0));
-                    lesExceptionsToSave.Add(exeptToSave3);
+                    LesExceptionsToSave.Add(exeptToSave3);
                 }
-                DataBase.SaveExceptionInBDD(lesExceptionsToSave);
+                PageRepetitionExep pre = new PageRepetitionExep(this);
+                pre.ShowDialog();
+                //DataBase.SaveExceptionInBDD(LesExceptionsToSave);
             }
             /*foreach (ExceptionVM exceptionVm in lesExceptionsToSave)
             {

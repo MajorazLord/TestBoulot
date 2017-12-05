@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Threading;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Windows;
 using TestAffichage.DataAccess;
-using TestAffichage.Model;
 using TestAffichage.ViewModel;
 
 namespace TestAffichage.View

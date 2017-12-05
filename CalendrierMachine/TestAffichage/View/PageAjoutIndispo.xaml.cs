@@ -107,7 +107,7 @@ namespace TestAffichage.View
 
         private void BtnAnnuler_OnClick(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult res = MessageBox.Show("Êtes-vous sur de vouloir annuler la saisie d'exception ?","Warning : Arret Saisie", MessageBoxButton.YesNo, MessageBoxImage.Information);
+            MessageBoxResult res = MessageBox.Show("Êtes-vous sur de vouloir annuler la saisie d'indisponibilité ?","Warning : Arret Saisie", MessageBoxButton.YesNo, MessageBoxImage.Information);
             //Debug.WriteLine(res);
             if (res == MessageBoxResult.Yes)
             {

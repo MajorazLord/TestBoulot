@@ -1,13 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Linq;
-using System.Security.RightsManagement;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using TestAffichage.Model;
 using TestAffichage.ViewModel;
@@ -384,11 +380,27 @@ namespace TestAffichage.DataAccess
             SqlDataReader dataReader = cmd.ExecuteReader();
             while (dataReader.Read())
             {
-                res = (int) dataReader[0];
+                res = (int)dataReader[0];
             }
             dataReader.Close();
             return res;
         }
+
+        /*public static void ResetCalendrier()
+        {
+            _conn.Open();
+            SqlCommand cmd = new SqlCommand
+            {
+                Connection = _conn,
+                CommandText =
+                    "DELETE FROM MACHINES_CALENDRIER WHERE NOMACHINE != @nomachine"
+            };
+            cmd.Parameters.AddWithValue("@nomachine", "");
+
+            cmd.ExecuteNonQuery();
+            _conn.Close();
+        }
+        */
         #endregion
 
         #region DeleteElementAAfficher

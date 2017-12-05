@@ -1,8 +1,8 @@
 ﻿<UserControl x:Class="TestAffichage.View.UCSelect"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:utils="clr-namespace:TestAffichage.Utils"
         xmlns:local="clr-namespace:TestAffichage.ViewModel"
+        xmlns:utils="clr-namespace:TestAffichage.Utils"
         Height="Auto" Width="Auto"
         Name="UcPresence">
     <DockPanel>

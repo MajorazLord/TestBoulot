@@ -1,0 +1,13 @@
+53;Changement de série|
+54;Réglages machine|
+55;Réglages annexes|
+56;Changement outil|
+57;Panne|
+58;Absence personnel|
+59;Attente validation|
+60;Attente outillage|
+61;Attente pièce|
+65;Arrêt volontaire|
+66;Préventif niveau 1|
+67;Préventif niveau 2,3|
+68;Essais

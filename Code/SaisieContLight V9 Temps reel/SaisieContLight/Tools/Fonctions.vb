@@ -837,7 +837,6 @@ Module Fonctions
         listFour.Add("AE0254")
         listFour.Add("AE0255")
         listFour.Add("AE0256")
-
     End Sub
 
     Public Function isFour(ByVal numMach As String) As Boolean
