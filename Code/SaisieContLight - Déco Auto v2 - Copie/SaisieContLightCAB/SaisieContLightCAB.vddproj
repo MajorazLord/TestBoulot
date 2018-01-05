@@ -146,6 +146,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_9CA2C7FE959F43368625B9ADAB4A8929"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_A0C86F99403ACB2850C8666E4B8A8EC6"
         "OwnerKey" = "8:_7130C68C97304E0EB3C88EF8A32B4268"
         "MsmSig" = "8:_UNDEFINED"
@@ -184,6 +190,12 @@
         {
         "MsmKey" = "8:_B3919FABC521EF913F2B904B3A4A16D2"
         "OwnerKey" = "8:_7130C68C97304E0EB3C88EF8A32B4268"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_C21FE5B2D7A941FE8ED68ADF96028B85"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -618,6 +630,24 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{BA458234-9B71-4F46-8107-E91156377184}:_9CA2C7FE959F43368625B9ADAB4A8929"
+            {
+            "SourcePath" = "8:..\\..\\..\\..\\..\\..\\Desktop\\SaisieContenantDerniereVersion\\Fichier param SCL\\POLICE\\segoe.ttf"
+            "TargetName" = "8:segoe.ttf"
+            "Tag" = "8:"
+            "Folder" = "8:_D25829409CDD44FBA75637C5EFA4FD4B"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{E4F2F62A-3940-4BF5-A031-F7FA98CAAFFA}:_A0C86F99403ACB2850C8666E4B8A8EC6"
             {
             "AssemblyIsInGAC" = "11:FALSE"
@@ -700,6 +730,24 @@
             "Register" = "3:0"
             "Exclude" = "11:TRUE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{BA458234-9B71-4F46-8107-E91156377184}:_C21FE5B2D7A941FE8ED68ADF96028B85"
+            {
+            "SourcePath" = "8:..\\..\\..\\..\\..\\..\\Desktop\\SaisieContenantDerniereVersion\\Fichier param SCL\\POLICE\\segoeb.ttf"
+            "TargetName" = "8:segoeb.ttf"
+            "Tag" = "8:"
+            "Folder" = "8:_D25829409CDD44FBA75637C5EFA4FD4B"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{E4F2F62A-3940-4BF5-A031-F7FA98CAAFFA}:_C60266A82CC588FB9B800DDC62C0E3F7"
@@ -958,16 +1006,6 @@
         }
         "Shortcut"
         {
-            "{971D45E9-E38C-49AC-B36E-4C5BEA533350}:_7A90C954018445C3A6E27AC080D05E5C"
-            {
-            "Name" = "8:Saisie Contenant"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "Target" = "8:_7130C68C97304E0EB3C88EF8A32B4268"
-            "Folder" = "8:_9313D58CB9C1426299D3E1C9A9805742"
-            "WorkingFolder" = "8:_D25829409CDD44FBA75637C5EFA4FD4B"
-            }
         }
     }
 }

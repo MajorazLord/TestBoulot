@@ -44,7 +44,7 @@ Partial Public Class frmChoix
         'BEntree
         '
         Me.BEntree.BackColor = System.Drawing.Color.Yellow
-        Me.BEntree.Font = New System.Drawing.Font("Segoe Condensed", 20.0!, System.Drawing.FontStyle.Bold)
+        Me.BEntree.Font = New System.Drawing.Font("Segoe Condensed", 16.0!, System.Drawing.FontStyle.Bold)
         Me.BEntree.Location = New System.Drawing.Point(3, 140)
         Me.BEntree.Name = "BEntree"
         Me.BEntree.Size = New System.Drawing.Size(234, 45)
@@ -54,7 +54,7 @@ Partial Public Class frmChoix
         'BSortie
         '
         Me.BSortie.BackColor = System.Drawing.Color.LimeGreen
-        Me.BSortie.Font = New System.Drawing.Font("Segoe Condensed", 20.0!, System.Drawing.FontStyle.Bold)
+        Me.BSortie.Font = New System.Drawing.Font("Segoe Condensed", 16.0!, System.Drawing.FontStyle.Bold)
         Me.BSortie.Location = New System.Drawing.Point(3, 89)
         Me.BSortie.Name = "BSortie"
         Me.BSortie.Size = New System.Drawing.Size(234, 45)
@@ -64,7 +64,7 @@ Partial Public Class frmChoix
         'BDeclaration
         '
         Me.BDeclaration.BackColor = System.Drawing.Color.DodgerBlue
-        Me.BDeclaration.Font = New System.Drawing.Font("Segoe Condensed", 20.0!, System.Drawing.FontStyle.Bold)
+        Me.BDeclaration.Font = New System.Drawing.Font("Segoe Condensed", 16.0!, System.Drawing.FontStyle.Bold)
         Me.BDeclaration.Location = New System.Drawing.Point(3, 37)
         Me.BDeclaration.Name = "BDeclaration"
         Me.BDeclaration.Size = New System.Drawing.Size(234, 45)
@@ -83,7 +83,7 @@ Partial Public Class frmChoix
         'BRecapSaisie
         '
         Me.BRecapSaisie.BackColor = System.Drawing.Color.Chocolate
-        Me.BRecapSaisie.Font = New System.Drawing.Font("Segoe Condensed", 20.0!, System.Drawing.FontStyle.Bold)
+        Me.BRecapSaisie.Font = New System.Drawing.Font("Segoe Condensed", 16.0!, System.Drawing.FontStyle.Bold)
         Me.BRecapSaisie.Location = New System.Drawing.Point(3, 191)
         Me.BRecapSaisie.Name = "BRecapSaisie"
         Me.BRecapSaisie.Size = New System.Drawing.Size(234, 45)

@@ -77,7 +77,7 @@ Partial Public Class frmChangePoste
         'BModifier
         '
         Me.BModifier.BackColor = System.Drawing.Color.Lime
-        Me.BModifier.Font = New System.Drawing.Font("Tahoma", 18.0!, System.Drawing.FontStyle.Bold)
+        Me.BModifier.Font = New System.Drawing.Font("Tahoma", 16.0!, System.Drawing.FontStyle.Bold)
         Me.BModifier.Location = New System.Drawing.Point(78, 225)
         Me.BModifier.Name = "BModifier"
         Me.BModifier.Size = New System.Drawing.Size(162, 66)

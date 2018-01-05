@@ -41,7 +41,7 @@ Partial Public Class frmAddUser
         'btvalid
         '
         Me.btvalid.BackColor = System.Drawing.Color.Lime
-        Me.btvalid.Font = New System.Drawing.Font("Tahoma", 18.0!, System.Drawing.FontStyle.Bold)
+        Me.btvalid.Font = New System.Drawing.Font("Tahoma", 16.0!, System.Drawing.FontStyle.Bold)
         Me.btvalid.Location = New System.Drawing.Point(75, 225)
         Me.btvalid.Name = "btvalid"
         Me.btvalid.Size = New System.Drawing.Size(162, 66)

@@ -29,6 +29,9 @@ Public Class frmChoix
         If horaireStandard = True Then
             'Dim frmChangeP As New frmChangeParam
             'TODO declancher automatiquement le timer
+            If posteActuel = Journee Then
+                Exit Sub
+            End If
             LancerTimerDeco()
         End If
 

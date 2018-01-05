@@ -864,8 +864,8 @@ Module Fonctions
             diff = diff + 86400
         End If
 
-
-        Return diff
+        '15 min après l'heure
+        Return diff + 900000
 
     End Function
 

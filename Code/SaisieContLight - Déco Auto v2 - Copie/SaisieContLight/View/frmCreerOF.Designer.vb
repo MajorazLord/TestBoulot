@@ -45,7 +45,7 @@ Partial Public Class frmCreerOF
         'btajouter
         '
         Me.btajouter.BackColor = System.Drawing.Color.Lime
-        Me.btajouter.Font = New System.Drawing.Font("Tahoma", 20.0!, System.Drawing.FontStyle.Regular)
+        Me.btajouter.Font = New System.Drawing.Font("Tahoma", 16.0!, System.Drawing.FontStyle.Bold)
         Me.btajouter.Location = New System.Drawing.Point(75, 228)
         Me.btajouter.Name = "btajouter"
         Me.btajouter.Size = New System.Drawing.Size(162, 66)

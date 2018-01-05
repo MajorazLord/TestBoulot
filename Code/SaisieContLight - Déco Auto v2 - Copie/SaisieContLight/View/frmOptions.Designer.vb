@@ -36,7 +36,7 @@ Partial Public Class frmOptions
         'BReset
         '
         Me.BReset.BackColor = System.Drawing.Color.Red
-        Me.BReset.Font = New System.Drawing.Font("Segoe Condensed", 15.0!, System.Drawing.FontStyle.Bold)
+        Me.BReset.Font = New System.Drawing.Font("Segoe Condensed", 14.0!, System.Drawing.FontStyle.Bold)
         Me.BReset.Location = New System.Drawing.Point(3, 50)
         Me.BReset.Name = "BReset"
         Me.BReset.Size = New System.Drawing.Size(234, 48)
@@ -46,7 +46,7 @@ Partial Public Class frmOptions
         'BUpload
         '
         Me.BUpload.BackColor = System.Drawing.Color.Chartreuse
-        Me.BUpload.Font = New System.Drawing.Font("Segoe Condensed", 16.0!, System.Drawing.FontStyle.Bold)
+        Me.BUpload.Font = New System.Drawing.Font("Segoe Condensed", 14.0!, System.Drawing.FontStyle.Bold)
         Me.BUpload.Location = New System.Drawing.Point(3, 105)
         Me.BUpload.Name = "BUpload"
         Me.BUpload.Size = New System.Drawing.Size(234, 48)
@@ -66,7 +66,7 @@ Partial Public Class frmOptions
         'BParametre
         '
         Me.BParametre.BackColor = System.Drawing.Color.Chartreuse
-        Me.BParametre.Font = New System.Drawing.Font("Segoe Condensed", 16.0!, System.Drawing.FontStyle.Bold)
+        Me.BParametre.Font = New System.Drawing.Font("Segoe Condensed", 14.0!, System.Drawing.FontStyle.Bold)
         Me.BParametre.Location = New System.Drawing.Point(3, 160)
         Me.BParametre.Name = "BParametre"
         Me.BParametre.Size = New System.Drawing.Size(234, 48)

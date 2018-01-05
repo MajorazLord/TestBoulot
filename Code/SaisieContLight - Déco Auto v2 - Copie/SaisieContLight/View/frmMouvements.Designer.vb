@@ -55,7 +55,7 @@ Partial Public Class frmMouvements
         'btvalid
         '
         Me.btvalid.BackColor = System.Drawing.Color.Lime
-        Me.btvalid.Font = New System.Drawing.Font("Tahoma", 18.0!, System.Drawing.FontStyle.Bold)
+        Me.btvalid.Font = New System.Drawing.Font("Tahoma", 16.0!, System.Drawing.FontStyle.Bold)
         Me.btvalid.Location = New System.Drawing.Point(135, 228)
         Me.btvalid.Name = "btvalid"
         Me.btvalid.Size = New System.Drawing.Size(102, 66)

@@ -38,7 +38,7 @@ Partial Public Class frmDeclaration
         'BRebuts
         '
         Me.BRebuts.BackColor = System.Drawing.Color.Red
-        Me.BRebuts.Font = New System.Drawing.Font("Segoe Condensed", 16.0!, System.Drawing.FontStyle.Bold)
+        Me.BRebuts.Font = New System.Drawing.Font("Segoe Condensed", 14.0!, System.Drawing.FontStyle.Bold)
         Me.BRebuts.Location = New System.Drawing.Point(3, 31)
         Me.BRebuts.Name = "BRebuts"
         Me.BRebuts.Size = New System.Drawing.Size(234, 40)
@@ -48,7 +48,7 @@ Partial Public Class frmDeclaration
         'BContenantNT
         '
         Me.BContenantNT.BackColor = System.Drawing.Color.DodgerBlue
-        Me.BContenantNT.Font = New System.Drawing.Font("Segoe Condensed", 16.0!, System.Drawing.FontStyle.Bold)
+        Me.BContenantNT.Font = New System.Drawing.Font("Segoe Condensed", 14.0!, System.Drawing.FontStyle.Bold)
         Me.BContenantNT.Location = New System.Drawing.Point(3, 77)
         Me.BContenantNT.Name = "BContenantNT"
         Me.BContenantNT.Size = New System.Drawing.Size(234, 40)
@@ -67,7 +67,7 @@ Partial Public Class frmDeclaration
         'BContenantBloque
         '
         Me.BContenantBloque.BackColor = System.Drawing.Color.Orange
-        Me.BContenantBloque.Font = New System.Drawing.Font("Segoe Condensed", 16.0!, System.Drawing.FontStyle.Bold)
+        Me.BContenantBloque.Font = New System.Drawing.Font("Segoe Condensed", 14.0!, System.Drawing.FontStyle.Bold)
         Me.BContenantBloque.Location = New System.Drawing.Point(3, 169)
         Me.BContenantBloque.Name = "BContenantBloque"
         Me.BContenantBloque.Size = New System.Drawing.Size(234, 40)
@@ -78,7 +78,7 @@ Partial Public Class frmDeclaration
         'BTempsProduction
         '
         Me.BTempsProduction.BackColor = System.Drawing.Color.Chocolate
-        Me.BTempsProduction.Font = New System.Drawing.Font("Segoe Condensed", 16.0!, System.Drawing.FontStyle.Bold)
+        Me.BTempsProduction.Font = New System.Drawing.Font("Segoe Condensed", 14.0!, System.Drawing.FontStyle.Bold)
         Me.BTempsProduction.Location = New System.Drawing.Point(3, 123)
         Me.BTempsProduction.Name = "BTempsProduction"
         Me.BTempsProduction.Size = New System.Drawing.Size(234, 40)

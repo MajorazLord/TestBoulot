@@ -83,7 +83,7 @@ Partial Public Class frmAddMachine
         'BAddMach
         '
         Me.BAddMach.BackColor = System.Drawing.Color.Lime
-        Me.BAddMach.Font = New System.Drawing.Font("Tahoma", 20.0!, System.Drawing.FontStyle.Bold)
+        Me.BAddMach.Font = New System.Drawing.Font("Segoe Condensed", 16.0!, System.Drawing.FontStyle.Bold)
         Me.BAddMach.Location = New System.Drawing.Point(77, 225)
         Me.BAddMach.Name = "BAddMach"
         Me.BAddMach.Size = New System.Drawing.Size(163, 66)

@@ -55,7 +55,7 @@ Partial Public Class frmChangeParam
         'BAddUser
         '
         Me.BAddUser.BackColor = System.Drawing.Color.DodgerBlue
-        Me.BAddUser.Font = New System.Drawing.Font("Segoe Condensed", 16.0!, System.Drawing.FontStyle.Bold)
+        Me.BAddUser.Font = New System.Drawing.Font("Segoe Condensed", 14.0!, System.Drawing.FontStyle.Bold)
         Me.BAddUser.Location = New System.Drawing.Point(3, 75)
         Me.BAddUser.Name = "BAddUser"
         Me.BAddUser.Size = New System.Drawing.Size(234, 30)
@@ -65,7 +65,7 @@ Partial Public Class frmChangeParam
         'BModifPoste
         '
         Me.BModifPoste.BackColor = System.Drawing.Color.Chocolate
-        Me.BModifPoste.Font = New System.Drawing.Font("Segoe Condensed", 16.0!, System.Drawing.FontStyle.Bold)
+        Me.BModifPoste.Font = New System.Drawing.Font("Segoe Condensed", 14.0!, System.Drawing.FontStyle.Bold)
         Me.BModifPoste.Location = New System.Drawing.Point(3, 111)
         Me.BModifPoste.Name = "BModifPoste"
         Me.BModifPoste.Size = New System.Drawing.Size(234, 32)
@@ -93,7 +93,7 @@ Partial Public Class frmChangeParam
         'BReset2
         '
         Me.BReset2.BackColor = System.Drawing.Color.Red
-        Me.BReset2.Font = New System.Drawing.Font("Segoe Condensed", 16.0!, System.Drawing.FontStyle.Bold)
+        Me.BReset2.Font = New System.Drawing.Font("Segoe Condensed", 14.0!, System.Drawing.FontStyle.Bold)
         Me.BReset2.Location = New System.Drawing.Point(3, 147)
         Me.BReset2.Name = "BReset2"
         Me.BReset2.Size = New System.Drawing.Size(234, 30)

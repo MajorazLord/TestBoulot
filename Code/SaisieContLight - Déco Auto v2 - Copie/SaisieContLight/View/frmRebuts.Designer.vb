@@ -165,7 +165,7 @@ Partial Public Class frmRebuts
         'BValider
         '
         Me.BValider.BackColor = System.Drawing.Color.Lime
-        Me.BValider.Font = New System.Drawing.Font("Tahoma", 20.0!, System.Drawing.FontStyle.Regular)
+        Me.BValider.Font = New System.Drawing.Font("Tahoma", 16.0!, System.Drawing.FontStyle.Bold)
         Me.BValider.Location = New System.Drawing.Point(135, 228)
         Me.BValider.Name = "BValider"
         Me.BValider.Size = New System.Drawing.Size(102, 66)

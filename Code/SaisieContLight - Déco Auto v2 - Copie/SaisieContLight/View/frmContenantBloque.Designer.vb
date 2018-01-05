@@ -41,7 +41,7 @@ Partial Public Class frmContenantBloque
         'BAjouter
         '
         Me.BAjouter.BackColor = System.Drawing.Color.Lime
-        Me.BAjouter.Font = New System.Drawing.Font("Tahoma", 20.0!, System.Drawing.FontStyle.Regular)
+        Me.BAjouter.Font = New System.Drawing.Font("Tahoma", 16.0!, System.Drawing.FontStyle.Bold)
         Me.BAjouter.Location = New System.Drawing.Point(135, 228)
         Me.BAjouter.Name = "BAjouter"
         Me.BAjouter.Size = New System.Drawing.Size(102, 66)
