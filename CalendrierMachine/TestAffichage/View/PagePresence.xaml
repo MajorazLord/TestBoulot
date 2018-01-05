@@ -76,8 +76,6 @@
             </StackPanel>
         </Grid>
         
-
-
         <AdornerDecorator Grid.Row="2">
             <ComboBox Name="CbChoixSecteur" Loaded="FrameworkElement_OnLoaded"
                   ItemsSource="{Binding CurrentSect}"

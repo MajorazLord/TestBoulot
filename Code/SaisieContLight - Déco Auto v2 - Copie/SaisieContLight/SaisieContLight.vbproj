@@ -1,0 +1,454 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7575877A-FDBF-4D2F-B5B6-F967A60F4D66}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>SaisieContLight.frmID</StartupObject>
+    <RootNamespace>SaisieContLight</RootNamespace>
+    <AssemblyName>SaisieContLight</AssemblyName>
+    <ProjectTypeGuids>{68B1623D-7FB9-47D8-8664-7ECEA3297D4F};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <PlatformFamilyName>PocketPC</PlatformFamilyName>
+    <PlatformID>b2c48bd2-963d-4549-9169-1fa021dce484</PlatformID>
+    <OSVersion>5.2</OSVersion>
+    <MyType>WindowsForms</MyType>
+    <DeployDirSuffix>SaisieContLight</DeployDirSuffix>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionStrict>Off</OptionStrict>
+    <OptionInfer>On</OptionInfer>
+    <NativePlatformName>Windows Mobile 6 Professional SDK</NativePlatformName>
+    <FormFactorID>
+    </FormFactorID>
+    <ApplicationIcon>beos-flash-icone-5090.ico</ApplicationIcon>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>$(PlatformFamilyName)=TRUE</DefineConstants>
+    <DocumentationFile>SaisieContLight.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</NoWarn>
+    <FileAlignment>512</FileAlignment>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <WarningsAsErrors>
+    </WarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>$(PlatformFamilyName)=TRUE</DefineConstants>
+    <DocumentationFile>SaisieContLight.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</NoWarn>
+    <FileAlignment>512</FileAlignment>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <WarningsAsErrors>
+    </WarningsAsErrors>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Datalogic.API" />
+    <Reference Include="Microsoft.WindowsCE.Forms" />
+    <Reference Include="Microsoft.WindowsMobile, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="Microsoft.WindowsMobile.Configuration, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="Microsoft.WindowsMobile.Forms, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="Microsoft.WindowsMobile.Status, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SqlClient, Version=3.0.3600.0, Culture=neutral, PublicKeyToken=3be235df1c8d2ad3, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Forms, Version=3.5.0.0, Culture=neutral, PublicKeyToken=969db8053d3322ac, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Data" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="Microsoft.WindowsMobile.Status" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.ComponentModel" />
+    <Import Include="System.Data.SqlClient" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Model\User.vb" />
+    <Compile Include="Model\QuantiteProdManager.vb" />
+    <Compile Include="Model\RebutManager.vb" />
+    <Compile Include="Model\UploadManager.vb" />
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmAddUser.Designer.vb">
+      <DependentUpon>frmAddUser.vb</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmAddUser.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tools\Fonctions.vb" />
+    <Compile Include="View\frmAddMachine.Designer.vb">
+      <DependentUpon>frmAddMachine.vb</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmAddMachine.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmArretMachine.Designer.vb">
+      <DependentUpon>frmArretMachine.vb</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmArretMachine.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmArretProd.Designer.vb">
+      <DependentUpon>frmArretProd.vb</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmArretProd.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmChangeParam.Designer.vb">
+      <DependentUpon>frmChangeParam.vb</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmChangeParam.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmChangePoste.Designer.vb">
+      <DependentUpon>frmChangePoste.vb</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmChangePoste.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmChargement.Designer.vb">
+      <DependentUpon>frmChargement.vb</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmChargement.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmChoix.Designer.vb">
+      <DependentUpon>frmChoix.vb</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmChoix.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmContenantBloque.Designer.vb">
+      <DependentUpon>frmContenantBloque.vb</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmContenantBloque.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmContenantNonTermine.Designer.vb">
+      <DependentUpon>frmContenantNonTermine.vb</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmContenantNonTermine.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmCreerOF.Designer.vb">
+      <DependentUpon>frmCreerOF.vb</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmCreerOF.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmDemandeOF.Designer.vb">
+      <DependentUpon>frmDemandeOF.vb</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmDemandeOF.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmEntree.Designer.vb">
+      <DependentUpon>frmEntree.vb</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmEntree.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmHelp.Designer.vb">
+      <DependentUpon>frmHelp.vb</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmHelp.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmID.Designer.vb">
+      <DependentUpon>frmID.vb</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmID.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmParametre.Designer.vb">
+      <DependentUpon>frmParametre.vb</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmParametre.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmRebuts.Designer.vb">
+      <DependentUpon>frmRebuts.vb</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmRebuts.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmRecapArretProd.Designer.vb">
+      <DependentUpon>frmRecapArretProd.vb</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmRecapArretProd.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmRecapRebuts.Designer.vb">
+      <DependentUpon>frmRecapRebuts.vb</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmRecapRebuts.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmRecapSaisie.Designer.vb">
+      <DependentUpon>frmRecapSaisie.vb</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmRecapSaisie.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmRecapTempsProduction.Designer.vb">
+      <DependentUpon>frmRecapTempsProduction.vb</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmRecapTempsProduction.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmTempsProduction.Designer.vb">
+      <DependentUpon>frmTempsProduction.vb</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmTempsProduction.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmMouvements.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmMouvements.Designer.vb">
+      <DependentUpon>frmMouvements.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="Tools\Variables.vb" />
+    <Compile Include="View\frmDeclaration.Designer.vb">
+      <DependentUpon>frmDeclaration.vb</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmDeclaration.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmOptions.Designer.vb">
+      <DependentUpon>frmOptions.vb</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmOptions.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmRecapArret.Designer.vb">
+      <DependentUpon>frmRecapArret.vb</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmRecapArret.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmRecapContenantsBloque.Designer.vb">
+      <DependentUpon>frmRecapContenantsBloque.vb</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmRecapContenantsBloque.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmRecapContenantsNT.Designer.vb">
+      <DependentUpon>frmRecapContenantsNT.vb</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmRecapContenantsNT.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmRecapIO.Designer.vb">
+      <DependentUpon>frmRecapIO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmRecapIO.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmUpload.Designer.vb">
+      <DependentUpon>frmUpload.vb</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmUpload.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="View\frmMouvements.resx">
+      <DependentUpon>frmMouvements.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="beos-flash-icone-5090.ico" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="Resources\NoCheck.png" />
+    <None Include="Resources\Check.png" />
+    <None Include="Resources\CODES_NP.txt" />
+    <None Include="Resources\Recapitulatif.png" />
+    <None Include="Resources\CODES_NP1.txt" />
+    <None Include="Resources\CODES_DEF.txt" />
+    <None Include="Resources\Ok.png" />
+    <None Include="Resources\Wifi.png" />
+    <None Include="Resources\Icone_Add.png" />
+    <None Include="Resources\Options.png" />
+    <None Include="Resources\Socle.png" />
+    <EmbeddedResource Include="Resources\Fleche_retour.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmAddUser.resx">
+      <DependentUpon>frmAddUser.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmAddMachine.resx">
+      <DependentUpon>frmAddMachine.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmArretMachine.resx">
+      <DependentUpon>frmArretMachine.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmArretProd.resx">
+      <DependentUpon>frmArretProd.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmChangeParam.resx">
+      <DependentUpon>frmChangeParam.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmChangePoste.resx">
+      <DependentUpon>frmChangePoste.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmChargement.resx">
+      <DependentUpon>frmChargement.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmChoix.resx">
+      <DependentUpon>frmChoix.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmContenantBloque.resx">
+      <DependentUpon>frmContenantBloque.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmContenantNonTermine.resx">
+      <DependentUpon>frmContenantNonTermine.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmCreerOF.resx">
+      <DependentUpon>frmCreerOF.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmDemandeOF.resx">
+      <DependentUpon>frmDemandeOF.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmEntree.resx">
+      <DependentUpon>frmEntree.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmHelp.resx">
+      <DependentUpon>frmHelp.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmID.resx">
+      <DependentUpon>frmID.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmParametre.resx">
+      <DependentUpon>frmParametre.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmRebuts.resx">
+      <DependentUpon>frmRebuts.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmRecapArretProd.resx">
+      <DependentUpon>frmRecapArretProd.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmRecapRebuts.resx">
+      <DependentUpon>frmRecapRebuts.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmRecapSaisie.resx">
+      <DependentUpon>frmRecapSaisie.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmRecapTempsProduction.resx">
+      <DependentUpon>frmRecapTempsProduction.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmTempsProduction.resx">
+      <DependentUpon>frmTempsProduction.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Validation.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmDeclaration.resx">
+      <DependentUpon>frmDeclaration.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmOptions.resx">
+      <DependentUpon>frmOptions.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmRecapArret.resx">
+      <DependentUpon>frmRecapArret.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmRecapContenantsBloque.resx">
+      <DependentUpon>frmRecapContenantsBloque.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmRecapContenantsNT.resx">
+      <DependentUpon>frmRecapContenantsNT.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmRecapIO.resx">
+      <DependentUpon>frmRecapIO.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmUpload.resx">
+      <DependentUpon>frmUpload.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CompactFramework.VisualBasic.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{F184B08F-C81C-45F6-A57F-5ABD9991F28F}">
+        <HostingProcess disable="1" />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -12,10 +12,11 @@ namespace TestAffichage.ViewModel
         public DateTime JourSaisie { get; set; }
         public List<PosteDeCharge> PdcsPrésents { get; set; }
         public List<PosteDeCharge> PdcsNonPrésents { get; set; }
+        public List<PosteDeCharge> PdcsNonSaisie { get; set; }
 
         public SaisieVM(){}
 
-        public SaisieVM(string secteurCode, string secteurLibellé, string horaire, DateTime jourSaisie, List<PosteDeCharge> pdcsPrésents, List<PosteDeCharge> pdcsNonPrésents)
+        public SaisieVM(string secteurCode, string secteurLibellé, string horaire, DateTime jourSaisie, List<PosteDeCharge> pdcsPrésents, List<PosteDeCharge> pdcsNonPrésents, List<PosteDeCharge> pdcsNonSaisie)
         {
             SecteurCode = secteurCode;
             SecteurLibellé = secteurLibellé;
@@ -23,6 +24,7 @@ namespace TestAffichage.ViewModel
             JourSaisie = jourSaisie;
             PdcsPrésents = pdcsPrésents;
             PdcsNonPrésents = pdcsNonPrésents;
+            PdcsNonSaisie = pdcsNonSaisie;
         }
     }
 }

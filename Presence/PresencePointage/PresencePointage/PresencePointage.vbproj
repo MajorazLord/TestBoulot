@@ -7,7 +7,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{3DC13A8E-B41B-4BE0-BA0A-B4A4E314EC9E}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>Sub Main</StartupObject>
+    <StartupObject>PresencePointage.PagePrincipale</StartupObject>
     <RootNamespace>PresencePointage</RootNamespace>
     <AssemblyName>PresencePointage</AssemblyName>
     <ProjectTypeGuids>{68B1623D-7FB9-47D8-8664-7ECEA3297D4F};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>

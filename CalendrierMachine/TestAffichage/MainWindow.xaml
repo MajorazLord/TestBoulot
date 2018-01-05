@@ -6,6 +6,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -13,5 +14,7 @@
         </Grid.ColumnDefinitions>
         <Button Grid.Column="0" Grid.Row="0" Name="BtnPresence" Content="Presence" FontSize="14" Click="BtnPresence_OnClick"/>
         <Button Grid.Column="1" Grid.Row="0" Name="BtnCalendrier" Content="Calendrier Machine" FontSize="14" Click="BtnCalendrier_OnClick"/>
+        <Button Content="Clean" Visibility="Collapsed" HorizontalAlignment="Left" Margin="37,25,0,0" Grid.Column="0" Grid.Row="1" VerticalAlignment="Top" Width="75" Click="ButtonBase_OnClick"/>
+        <Button Content="Rempli" Visibility="Collapsed" Grid.Column="1" HorizontalAlignment="Left" Margin="66,25,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Click="ButtonBase_OnClick1"/>
     </Grid>
 </Window>

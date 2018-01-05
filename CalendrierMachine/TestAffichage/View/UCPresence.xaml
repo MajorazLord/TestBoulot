@@ -44,17 +44,28 @@
                   DataType="{x:Type local:PosteDeChargeVM}" 
                   ItemsSource="{Binding Children, Mode=Default}"
                   >
-                    <Grid Width="150" Height="20">
+                    <Grid Width="200" Height="20">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="95"/>
                         </Grid.ColumnDefinitions>
-                        <CheckBox
-                            Focusable="False" 
-                            IsChecked="{Binding IsChecked, Mode=TwoWay}" 
-                            VerticalAlignment="Center" 
-                            Grid.Column="1"/>
                         <TextBlock Grid.Column="0" Text="{Binding Code}" />
+                        <StackPanel Grid.Column="1" Orientation="Horizontal">
+                            <RadioButton
+                                Name="RbOui"
+                                IsChecked="False"
+                                Content="OUI"
+                                Checked="Rb_OnChecked"
+                            />
+                            <RadioButton
+                                Name="RbNon"
+                                Margin="5,0,0,0"
+                                IsChecked="False"
+                                Content="NON"
+                                Checked="Rb_OnChecked"
+                            />
+                        </StackPanel>
+                        
                     </Grid>
                 </HierarchicalDataTemplate>
 

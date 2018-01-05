@@ -181,7 +181,76 @@ namespace TestAffichage.DataAccess
         }
         #endregion
 
+        #region DeleteTablePresenceTR
+        public static void DeleteTablePresenceTR()
+        {
+            _conn.Open();
+            SqlCommand cmd1 = new SqlCommand
+            {
+                Connection = _conn,
+                CommandText = "DELETE FROM PDC_PRESENCE_TEMPSREEL"
+            };
+            cmd1.ExecuteNonQuery();
+            _conn.Close();
+        }
+        #endregion
+
         #region SaveSaisieInBDD
+
+        public static bool SaveSaisieVMToBDD_TR(List<SaisieVM> saisieToSave, string methode)
+        {
+            DateTime newDate = saisieToSave[0].JourSaisie;
+            DateTime baseDate = new DateTime(1,1,1,1,1,1);
+            string baseEquipe = "";
+            string newEquipe = saisieToSave[0].Horaire;
+            _conn.Open();
+            SqlCommand cmd = new SqlCommand
+            {
+                Connection = _conn,
+                CommandText = "SELECT TOP 1 DATE, EQUIPE FROM PDC_PRESENCE_TEMPSREEL"
+            };
+
+            SqlDataReader dataReader = cmd.ExecuteReader();
+            while (dataReader.Read())
+            {
+                baseDate = (DateTime) dataReader[0];
+                baseEquipe = (string) dataReader[1];
+            }
+            _conn.Close(); // Close the connection
+
+            //Rien n'est lu dans la table, on ajoute juste la saisie
+            if (baseDate == new DateTime(1, 1, 1, 1, 1, 1))
+            {
+                SaveSaisieVMToBDD(saisieToSave, "add");
+                return true;
+            }
+
+            if (newDate.Day == baseDate.Day)
+            {
+                if (baseEquipe == newEquipe)
+                {
+                    string res = "";
+                    res = VerifAddOrUpdate(saisieToSave);
+                    SaveSaisieVMToBDD(saisieToSave, res);
+                    //TODO /!\ Add ou UPDATE saisieToSave dans la table PDC_PRESENCE_TEMPSREEL comme dans le truc de dessous /!\
+                }
+                else
+                {
+                    DeleteTablePresenceTR();
+                    SaveSaisieVMToBDD(saisieToSave, "add");
+                    return true;
+                }
+            }
+            else
+            {
+                DeleteTablePresenceTR();
+                SaveSaisieVMToBDD(saisieToSave, "add");
+                return true;  
+            }
+            return true;
+        }
+
+
         public static bool SaveSaisieVMToBDD(List<SaisieVM> saisieToSave, string methode)
         {
             if (VerifConnection())
@@ -191,6 +260,7 @@ namespace TestAffichage.DataAccess
                 {
                     List<PosteDeCharge> listNoPresentToSave = saisie.PdcsNonPrésents;
                     List<PosteDeCharge> listPresentToSave = saisie.PdcsPrésents;
+                    List<PosteDeCharge> listNoSaisieToSave = saisie.PdcsNonSaisie;
 
                     if (methode == "add")
                     {
@@ -201,6 +271,10 @@ namespace TestAffichage.DataAccess
                         if (listNoPresentToSave.Count != 0)
                         {
                             SaveNoPresent(listNoPresentToSave, saisie.Horaire, saisie.JourSaisie.Date);
+                        }
+                        if (listNoSaisieToSave.Count != 0)
+                        {
+                            SaveNoSaisie(listNoSaisieToSave, saisie.Horaire, saisie.JourSaisie.Date);
                         }
                         _conn.Close();
                         return true;
@@ -220,6 +294,11 @@ namespace TestAffichage.DataAccess
                             {
                                 UpdateNoPresent(listNoPresentToSave, saisie.Horaire, saisie.JourSaisie.Date);
                             }
+                            if (listNoSaisieToSave.Count != 0)
+                            {
+                                UpdateNoSaisie(listNoSaisieToSave, saisie.Horaire, saisie.JourSaisie.Date);
+                            }
+
                             _conn.Close();
                             return true;
                         }
@@ -241,18 +320,18 @@ namespace TestAffichage.DataAccess
                 SqlCommand cmd = new SqlCommand
                 {
                     Connection = _conn,
-                    CommandText = "INSERT INTO POSTE_CHARGE_PRESENCE (POSTE_CHARGE, DATE, EQUIPE, PRESENT) VALUES (@pdc, @date, @equipe, @present)"
+                    CommandText = "INSERT INTO PDC_PRESENCE_TEMPSREEL (POSTE_CHARGE, DATE, EQUIPE, PRESENT) VALUES (@pdc, @date, @equipe, @present)"
                 };
                 cmd.Parameters.AddWithValue("@pdc", pdc.Code);
                 cmd.Parameters.AddWithValue("@date", jourSaisie);
                 cmd.Parameters.AddWithValue("@equipe", horaire);
-                cmd.Parameters.AddWithValue("@present", true);
+                cmd.Parameters.AddWithValue("@present", 1);
                 cmd.ExecuteNonQuery();
             }
 
         }
         #endregion
-        
+
         #region SaveNoPresent
         private static void SaveNoPresent(List<PosteDeCharge> pdcNoPresentToSave, string horaire, DateTime jourSaisie)
         {
@@ -261,13 +340,33 @@ namespace TestAffichage.DataAccess
                 SqlCommand cmd = new SqlCommand
                 {
                     Connection = _conn,
-                    CommandText = "INSERT INTO POSTE_CHARGE_PRESENCE (POSTE_CHARGE, DATE, EQUIPE, PRESENT) VALUES (@pdc, @date, @equipe, @present)"
+                    CommandText = "INSERT INTO PDC_PRESENCE_TEMPSREEL (POSTE_CHARGE, DATE, EQUIPE, PRESENT) VALUES (@pdc, @date, @equipe, @present)"
+                };
+
+                cmd.Parameters.AddWithValue("@pdc", pdc.Code);
+                cmd.Parameters.AddWithValue("@date", jourSaisie);
+                cmd.Parameters.AddWithValue("@equipe", horaire);
+                cmd.Parameters.AddWithValue("@present", 0);
+                cmd.ExecuteNonQuery();
+            }
+        }
+        #endregion
+        
+        #region SaveNoSaisie
+        private static void SaveNoSaisie(List<PosteDeCharge> pdcNoSaisieToSave, string horaire, DateTime jourSaisie)
+        {
+            foreach (PosteDeCharge pdc in pdcNoSaisieToSave)
+            {
+                SqlCommand cmd = new SqlCommand
+                {
+                    Connection = _conn,
+                    CommandText = "INSERT INTO PDC_PRESENCE_TEMPSREEL (POSTE_CHARGE, DATE, EQUIPE, PRESENT) VALUES (@pdc, @date, @equipe, @present)"
                 };
             
                 cmd.Parameters.AddWithValue("@pdc", pdc.Code);
                 cmd.Parameters.AddWithValue("@date", jourSaisie);
                 cmd.Parameters.AddWithValue("@equipe", horaire);
-                cmd.Parameters.AddWithValue("@present", false);
+                cmd.Parameters.AddWithValue("@present", -1);
                 cmd.ExecuteNonQuery();
             }
         }
@@ -281,11 +380,12 @@ namespace TestAffichage.DataAccess
                 SqlCommand cmd = new SqlCommand
                 {
                     Connection = _conn,
-                    CommandText = "UPDATE POSTE_CHARGE_PRESENCE SET PRESENT = @present WHERE POSTE_CHARGE = @pdc AND DATE = @date AND EQUIPE = @equipe"};
+                    CommandText = "UPDATE PDC_PRESENCE_TEMPSREEL SET PRESENT = @present WHERE POSTE_CHARGE = @pdc AND DATE = @date AND EQUIPE = @equipe"
+                };
                 cmd.Parameters.AddWithValue("@pdc", pdc.Code);
                 cmd.Parameters.AddWithValue("@date", jourSaisie);
                 cmd.Parameters.AddWithValue("@equipe", horaire);
-                cmd.Parameters.AddWithValue("@present", true);
+                cmd.Parameters.AddWithValue("@present", 1);
                 cmd.ExecuteNonQuery();
             }
         }
@@ -299,12 +399,32 @@ namespace TestAffichage.DataAccess
                 SqlCommand cmd = new SqlCommand
                 {
                     Connection = _conn,
-                    CommandText = "UPDATE POSTE_CHARGE_PRESENCE SET PRESENT = @present WHERE POSTE_CHARGE = @pdc AND DATE = @date AND EQUIPE = @equipe"
+                    CommandText = "UPDATE PDC_PRESENCE_TEMPSREEL SET PRESENT = @present WHERE POSTE_CHARGE = @pdc AND DATE = @date AND EQUIPE = @equipe"
                 };
                 cmd.Parameters.AddWithValue("@pdc", pdc.Code);
                 cmd.Parameters.AddWithValue("@date", jourSaisie);
                 cmd.Parameters.AddWithValue("@equipe", horaire);
-                cmd.Parameters.AddWithValue("@present", false);
+                cmd.Parameters.AddWithValue("@present", 0);
+                cmd.ExecuteNonQuery();
+            }
+        }
+        #endregion
+        
+        #region UpdateNoSaisie
+        private static void UpdateNoSaisie(List<PosteDeCharge> pdcNoSaisieToSave, string horaire, DateTime jourSaisie)
+        {
+            bool? valTest = null;
+            foreach (PosteDeCharge pdc in pdcNoSaisieToSave)
+            {
+                SqlCommand cmd = new SqlCommand
+                {
+                    Connection = _conn,
+                    CommandText = "UPDATE PDC_PRESENCE_TEMPSREEL SET PRESENT = @present WHERE POSTE_CHARGE = @pdc AND DATE = @date AND EQUIPE = @equipe"
+                };
+                cmd.Parameters.AddWithValue("@pdc", pdc.Code);
+                cmd.Parameters.AddWithValue("@date", jourSaisie);
+                cmd.Parameters.AddWithValue("@equipe", horaire);
+                cmd.Parameters.AddWithValue("@present", -1);
                 cmd.ExecuteNonQuery();
             }
         }
@@ -888,7 +1008,7 @@ namespace TestAffichage.DataAccess
             if (VerifConnection())
             {
                 _conn.Open();
-                string sqlTrunc = "TRUNCATE TABLE POSTE_CHARGE_PRESENCE";
+                string sqlTrunc = "TRUNCATE TABLE MACHINES_CALENDRIER";
                 SqlCommand cmd = new SqlCommand(sqlTrunc, _conn);
                 cmd.ExecuteNonQuery();
                 _conn.Close();

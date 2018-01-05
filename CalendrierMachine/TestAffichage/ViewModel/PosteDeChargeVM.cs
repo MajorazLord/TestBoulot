@@ -21,6 +21,15 @@ namespace TestAffichage.ViewModel
         {
             get { return _pdc.Libellé; }
         }
+
+        public bool? Presence
+        {
+            get { return _pdc.Presence; }
+            set { _pdc.Presence = value; }
+        }
+
+
+
         public List<Machine> LesMachinesPdc
         {
             get { return _pdc.LesMachinesPdc; }

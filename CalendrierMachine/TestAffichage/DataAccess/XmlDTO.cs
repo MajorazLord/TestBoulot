@@ -14,6 +14,7 @@ namespace TestAffichage.DataAccess
         public DateTime JourSaisie { get; set; }
         public List<PosteDeCharge> PdcsPrésents { get; set; }
         public List<PosteDeCharge> PdcsNonPrésents { get; set; }
+        public List<PosteDeCharge> PdcsNonSaisie { get; set; }
     }
 
     public class XmlSaisieVMConverter
@@ -38,7 +39,8 @@ namespace TestAffichage.DataAccess
                 Horaire = saisieVM.Horaire,
                 JourSaisie = saisieVM.JourSaisie,
                 PdcsPrésents = saisieVM.PdcsPrésents,
-                PdcsNonPrésents = saisieVM.PdcsNonPrésents
+                PdcsNonPrésents = saisieVM.PdcsNonPrésents,
+                PdcsNonSaisie = saisieVM.PdcsNonSaisie
             };
             
         }
@@ -61,12 +63,10 @@ namespace TestAffichage.DataAccess
                 xmlSaisieVM.Horaire,
                 xmlSaisieVM.JourSaisie,
                 xmlSaisieVM.PdcsPrésents,
-                xmlSaisieVM.PdcsNonPrésents
+                xmlSaisieVM.PdcsNonPrésents,
+                xmlSaisieVM.PdcsNonSaisie
             );
            
         }
     }
-
-
-
 }

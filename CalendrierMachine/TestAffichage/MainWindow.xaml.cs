@@ -58,5 +58,15 @@ namespace TestAffichage
             //Remplie la table MACHINES_CALENDRIER par defaut jusqu'a fin 2025
             DataBase.TotalTest(new DateTime(2017,11,20), new DateTime(2025,12,28));
         }
+
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            DataBase.CleanTable();
+        }
+
+        private void ButtonBase_OnClick1(object sender, RoutedEventArgs e)
+        {
+            DataBase.TotalTest(DateTime.Today, new DateTime(2025,12,28));
+        }
     }
 }

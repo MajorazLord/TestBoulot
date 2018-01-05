@@ -7,6 +7,7 @@ namespace TestAffichage.Model
         public string Code { get; set; }
         public string Libellé { get; set; }
         public List<Machine> LesMachinesPdc { get; set; }
+        public bool? Presence { get; set; }
 
         public PosteDeCharge(){}
 
@@ -15,6 +16,7 @@ namespace TestAffichage.Model
             this.Code = code;
             this.Libellé = libellé;
             this.LesMachinesPdc = lesMachinesPdc;
+            this.Presence = null;
         }
 
         /*public static int ComparePdc(PosteDeCharge pdc1, PosteDeCharge pdc2) {

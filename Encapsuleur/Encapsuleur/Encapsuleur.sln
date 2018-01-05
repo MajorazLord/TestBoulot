@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Encapsuleur", "Encapsuleur\Encapsuleur.vbproj", "{CFD3EDD2-BD55-47D2-8984-AEE1CBD9A5FA}"
+EndProject
+Project("{B900F1C2-3D47-4FEC-85B3-04AAF18C3634}") = "EncapsuleurCab", "EncapsuleurCab\EncapsuleurCab.vddproj", "{9580170D-8AD8-48E8-BC3D-307708DB8680}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CFD3EDD2-BD55-47D2-8984-AEE1CBD9A5FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFD3EDD2-BD55-47D2-8984-AEE1CBD9A5FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFD3EDD2-BD55-47D2-8984-AEE1CBD9A5FA}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{CFD3EDD2-BD55-47D2-8984-AEE1CBD9A5FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFD3EDD2-BD55-47D2-8984-AEE1CBD9A5FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFD3EDD2-BD55-47D2-8984-AEE1CBD9A5FA}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{9580170D-8AD8-48E8-BC3D-307708DB8680}.Debug|Any CPU.ActiveCfg = Debug
+		{9580170D-8AD8-48E8-BC3D-307708DB8680}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

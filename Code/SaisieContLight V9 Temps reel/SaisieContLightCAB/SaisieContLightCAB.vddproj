@@ -56,8 +56,8 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_4903EAD497464CA59F27752B93BF84A4"
-        "OwnerKey" = "8:_UNDEFINED"
+        "MsmKey" = "8:_43FA5685FD58A4EB5FBACD6B5A1924B3"
+        "OwnerKey" = "8:_7130C68C97304E0EB3C88EF8A32B4268"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -254,12 +254,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_D3DA25B99D8D4FD5AE23DD1AE8E9BF39"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_D88B03858346254FC492DAED4460FBD8"
         "OwnerKey" = "8:_7130C68C97304E0EB3C88EF8A32B4268"
         "MsmSig" = "8:_UNDEFINED"
@@ -452,11 +446,11 @@
                 {
                     "_43FA5685FD58A4EB5FBACD6B5A1924B3"
                     {
-                    "Name" = "8:Microsoft.WindowsCE.Forms.DLL"
+                    "Name" = "8:Microsoft.WindowsCE.Forms.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:Microsoft.WindowsCE.Forms.DLL"
+            "SourcePath" = "8:Microsoft.WindowsCE.Forms.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_D25829409CDD44FBA75637C5EFA4FD4B"
@@ -470,24 +464,6 @@
             "Register" = "3:0"
             "Exclude" = "11:TRUE"
             "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{BA458234-9B71-4F46-8107-E91156377184}:_4903EAD497464CA59F27752B93BF84A4"
-            {
-            "SourcePath" = "8:..\\..\\Fichier param SCL\\POLICE\\segoe.ttf"
-            "TargetName" = "8:segoe.ttf"
-            "Tag" = "8:"
-            "Folder" = "8:_2D64160D56F343C9A002375728FC49DC"
-            "Condition" = "8:"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "Register" = "3:0"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{E4F2F62A-3940-4BF5-A031-F7FA98CAAFFA}:_55BDC22CEEAA4630A278997F931B63FC"
@@ -740,24 +716,6 @@
             "Register" = "3:0"
             "Exclude" = "11:TRUE"
             "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{BA458234-9B71-4F46-8107-E91156377184}:_D3DA25B99D8D4FD5AE23DD1AE8E9BF39"
-            {
-            "SourcePath" = "8:..\\..\\Fichier param SCL\\POLICE\\segoeb.ttf"
-            "TargetName" = "8:segoeb.ttf"
-            "Tag" = "8:"
-            "Folder" = "8:_2D64160D56F343C9A002375728FC49DC"
-            "Condition" = "8:"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "Register" = "3:0"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{E4F2F62A-3940-4BF5-A031-F7FA98CAAFFA}:_D88B03858346254FC492DAED4460FBD8"

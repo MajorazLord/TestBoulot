@@ -89,8 +89,17 @@
         <Button x:Name="BtnParam" Content="Paramètres" IsEnabled="False" Grid.Column="2" Margin="5" Grid.Row="3" Width="Auto" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
         <Button x:Name="BtnAddIndispo"  Content="Ajouter indisponibilité(s)" Grid.Column="1" Margin="5" Grid.Row="3" Width="Auto" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Click="BtnAddIndispo_OnClick"/>
         <StackPanel Orientation="Vertical" VerticalAlignment="Center" Grid.Row="1" Grid.Column="2" Margin="5,3,5,0">
-            <CheckBox x:Name="CbAll" Content="Vu globale (tout les jours)" IsChecked="True" FontSize="13" HorizontalAlignment="Center" Margin="0,0,0,3" Click="CbIndispos_OnClick"/>
-            <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"/>
+                    <ColumnDefinition Width="0.6*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <RadioButton x:Name="RbGlobal" Content="Globale" Grid.Column="0" GroupName="AffichageJours" IsChecked="True" FontWeight="Bold"/>
+                <RadioButton Content="Aujourd'hui" Grid.Column="1" GroupName="AffichageJours" FontWeight="Bold"/>
+                <RadioButton Content="A partir de aujourd'hui" Grid.Column="2" GroupName="AffichageJours" FontWeight="Bold"/>
+            </Grid>
+            <StackPanel Orientation="Horizontal" Margin="0,5,0,5">
                 <CheckBox x:Name="CbIndispos" IsChecked="True" Content="Voir les indisponibilités" FontSize="13" VerticalContentAlignment="Center" Click="CbIndispos_OnClick"/>
                 <CheckBox x:Name="CbExepts" IsChecked="True" Content="Voir les exceptions" FontSize="13" VerticalContentAlignment="Center" Margin="10,0,0,0" Click="CbIndispos_OnClick"/>
             </StackPanel>
@@ -103,8 +112,8 @@
                     <TextBlock VerticalAlignment="Center" FontSize="18">Saisir un éventuel numéro de machine</TextBlock>
                 </utils:WatermarkService.Watermark>
             </TextBox>
-        
+
         </AdornerDecorator>
-        
+
     </Grid>
 </Window>

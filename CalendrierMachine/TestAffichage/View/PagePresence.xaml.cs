@@ -20,9 +20,10 @@ namespace TestAffichage.View
         //Pour les resultats de la saisie :
         private string _horaire;
         private DateTime? _jourSaisie;
+        private Secteur _secteurSaisie;
         private List<PosteDeCharge> _pdcPresent = new List<PosteDeCharge>();
         private List<PosteDeCharge> _pdcNonPresent = new List<PosteDeCharge>();
-        private Secteur _secteurSaisie;
+        private List<PosteDeCharge> _pdcNonSaisie = new List<PosteDeCharge>();
         
         public PagePresence()
         {
@@ -98,15 +99,19 @@ namespace TestAffichage.View
         {
             _pdcNonPresent.Clear();
             _pdcPresent.Clear();
+            _pdcNonSaisie.Clear();
             foreach (PosteDeChargeVM pdcToTest in sectSelected.Children)
             {
-                switch (pdcToTest.IsChecked)
+                switch (pdcToTest.Presence)
                 {
                     case true:
                         _pdcPresent.Add(new PosteDeCharge(pdcToTest.Code,pdcToTest.Libellé,pdcToTest.LesMachinesPdc));
                         break;
                     case false:
                         _pdcNonPresent.Add(new PosteDeCharge(pdcToTest.Code, pdcToTest.Libellé, pdcToTest.LesMachinesPdc));
+                        break;
+                    case null:
+                        _pdcNonSaisie.Add(new PosteDeCharge(pdcToTest.Code, pdcToTest.Libellé, pdcToTest.LesMachinesPdc));
                         break;
                 }
             }
@@ -147,7 +152,8 @@ namespace TestAffichage.View
                 if (MainWindow.IsConnected())
                 {
                     resultat = DataBase.VerifAddOrUpdate(saisieToSave);
-                    bool res = DataBase.SaveSaisieVMToBDD(saisieToSave, resultat);
+                    bool res = DataBase.SaveSaisieVMToBDD_TR(saisieToSave, resultat);
+
                     if (res)
                     {
                         MessageBox.Show("Saisie Sauvegardée !", "Sauvegarde Reussi", MessageBoxButton.OK, MessageBoxImage.None);                 
@@ -167,7 +173,7 @@ namespace TestAffichage.View
         {
             return new List<SaisieVM>()
             {
-                new SaisieVM(_secteurSaisie.Code, _secteurSaisie.Libellé, _horaire, (DateTime) _jourSaisie, _pdcPresent, _pdcNonPresent)
+                new SaisieVM(_secteurSaisie.Code, _secteurSaisie.Libellé, _horaire, (DateTime) _jourSaisie, _pdcPresent, _pdcNonPresent, _pdcNonSaisie)
             };
         }
         #endregion

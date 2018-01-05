@@ -198,45 +198,45 @@ namespace TestAffichage.View
         public void AjusterLesElements()
         {
             //Affiche tout pour tout les jours
-            if (CbExepts.IsChecked == true && CbIndispos.IsChecked == true && CbAll.IsChecked == true)
+            if (CbExepts.IsChecked == true && CbIndispos.IsChecked == true && RbGlobal.IsChecked == true)
             {
                 LesElementsAAfficherB = DataBase.ChargerIndisposExcepts();
             }
             //Affiche les exceptions pour tout les jours
-            if (CbExepts.IsChecked == true && CbIndispos.IsChecked == false && CbAll.IsChecked == true)
+            if (CbExepts.IsChecked == true && CbIndispos.IsChecked == false && RbGlobal.IsChecked == true)
             {
                 LesElementsAAfficherB = DataBase.ChargerExceptsDepuisBDD();
             }
             //Affiche les indisponibilités pour tout les jours
-            if (CbExepts.IsChecked == false && CbIndispos.IsChecked == true && CbAll.IsChecked == true)
+            if (CbExepts.IsChecked == false && CbIndispos.IsChecked == true && RbGlobal.IsChecked == true)
             {
                 LesElementsAAfficherB = DataBase.ChargerIndisposDepuisBDD();
             }
             //Affiche rien, rien de selectionné sauf "tout les jours"
-            if (CbExepts.IsChecked == false && CbIndispos.IsChecked == false && CbAll.IsChecked == true)
+            if (CbExepts.IsChecked == false && CbIndispos.IsChecked == false && RbGlobal.IsChecked == true)
             {
                 LesElementsAAfficherB = new ObservableCollection<AffichableEnListeBox>();
             }
             //Affiche les indisponibilités du jour saisie sur le calendrier
-            if (CbAll.IsChecked == false && CbExepts.IsChecked == false && CbIndispos.IsChecked == true)
+            if (RbGlobal.IsChecked == false && CbExepts.IsChecked == false && CbIndispos.IsChecked == true)
             {
                 LesElementsAAfficherB = new ObservableCollection<AffichableEnListeBox>();
                 LesElementsAAfficherB = DataBase.ChargeIndispoDate(LaDate);
             } 
             //Affiche les exceptions du jour saisie sur le calendrier
-            if (CbAll.IsChecked == false && CbExepts.IsChecked == true && CbIndispos.IsChecked == false)
+            if (RbGlobal.IsChecked == false && CbExepts.IsChecked == true && CbIndispos.IsChecked == false)
             {
                 LesElementsAAfficherB = new ObservableCollection<AffichableEnListeBox>();
                 LesElementsAAfficherB = DataBase.ChargeExceptDate(LaDate);
             }
             //Affiche tout pour le jour saisie sur le calendrier
-            if (CbAll.IsChecked == false && CbExepts.IsChecked == true && CbIndispos.IsChecked == true)
+            if (RbGlobal.IsChecked == false && CbExepts.IsChecked == true && CbIndispos.IsChecked == true)
             {
                 LesElementsAAfficherB = new ObservableCollection<AffichableEnListeBox>();
                 LesElementsAAfficherB = DataBase.ChargerIndisposExceptsDate(LaDate);
             }
             //Affiche rien, rien de cocher
-            if (CbAll.IsChecked == false && CbExepts.IsChecked == false && CbIndispos.IsChecked == false)
+            if (RbGlobal.IsChecked == false && CbExepts.IsChecked == false && CbIndispos.IsChecked == false)
             {
                 LesElementsAAfficherB = new ObservableCollection<AffichableEnListeBox>();
             }
