@@ -90,7 +90,8 @@ namespace TestAffichage.Properties
   /// should be in <see cref="string.Format(IFormatProvider,string,object[])"/>-like form.
   /// </summary>
   /// <example><code>
-  /// [StringFormatMethod("message")]
+  /// [StringFormatMethod("
+  /// ")]
   /// void ShowError(string message, params object[] args) { /* do something */ }
   /// 
   /// void Foo() {

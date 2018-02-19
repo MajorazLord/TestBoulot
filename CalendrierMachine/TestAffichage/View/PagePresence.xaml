@@ -4,19 +4,38 @@
         xmlns:utils="clr-namespace:TestAffichage.Utils"
         xmlns:view="clr-namespace:TestAffichage.View"
         Title="Presence (Quelqu'un devant le poste de charge ?)" 
-        Height="550" Width="470" 
+        Height="Auto" Width="Auto" 
         WindowStartupLocation="CenterScreen"
+        WindowState="Maximized"
         Name="Fenetre">
+    <Window.Resources>
+        <Style x:Key="StyleCalendar" TargetType="{x:Type Calendar}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Calendar}">
+                        <!-- Wrapping in ViewBox will enlarge calendar of that size.-->
+                        <Viewbox Height="450"
+                                 Width="450">
+                            <CalendarItem x:Name="PART_CalendarItem"
+                                          Background="{TemplateBinding Background}"
+                                          BorderBrush="{TemplateBinding BorderBrush}"
+                                          BorderThickness="{TemplateBinding BorderThickness}"/>
+                        </Viewbox>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="35"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition/>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="80"/>
         </Grid.RowDefinitions>
-        <DatePicker x:Name="DatePickerJours" SelectedDate="{Binding DatePresence, Mode=TwoWay}"/>
-        
+        <DatePicker x:Name="DatePickerJours" SelectedDate="{Binding DatePresence, Mode=TwoWay}" CalendarStyle="{StaticResource StyleCalendar}" FontSize="28" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
+
         <Grid Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -53,44 +72,43 @@
             <Line Grid.Column="2" Style="{StaticResource verticalLineStyle}"/>
             <Line Grid.Column="3" Style="{StaticResource verticalLineStyle}"/>
             <Line Grid.Row="1"  Style="{StaticResource horizontalLineStyle}"/>
-            
-            <StackPanel Orientation="Vertical">
-                <RadioButton x:Name="Rb1" HorizontalAlignment="Center" Margin="0,2,0,0" GroupName="RbHoraire"/>
-                <Label Content="MAT" Height="15" Padding="0" Margin="0,0,0,2" HorizontalAlignment="Center"/>
-            </StackPanel>
-            <StackPanel Orientation="Vertical" Grid.Column="1">
-                <RadioButton x:Name="Rb2" HorizontalAlignment="Center" Margin="0,2,0,0" GroupName="RbHoraire"/>
-                <Label Content="SOI" Height="15" Padding="0" HorizontalAlignment="Center"/>
-            </StackPanel>
-            <StackPanel Orientation="Vertical" Grid.Column="2">
-                <RadioButton x:Name="Rb3" HorizontalAlignment="Center" Margin="0,2,0,0" GroupName="RbHoraire" Click="Rb3_Rb5_OnClick"/>
-                <Label Content="NUI" Height="15" Padding="0" HorizontalAlignment="Center"/>
-            </StackPanel>
-            <StackPanel Orientation="Vertical" Grid.Column="3">
-                <RadioButton x:Name="Rb4" HorizontalAlignment="Center" Margin="0,2,0,0" GroupName="RbHoraire"/>
-                <Label Content="WE1" Height="15" Padding="0" HorizontalAlignment="Center"/>
-            </StackPanel>
-            <StackPanel Orientation="Vertical" Grid.Column="4">
-                <RadioButton x:Name="Rb5" HorizontalAlignment="Center" Margin="0,2,0,0" GroupName="RbHoraire" Click="Rb3_Rb5_OnClick"/>
-                <Label Content="WE2" Height="15" Padding="0" HorizontalAlignment="Center"/>
-            </StackPanel>
+
+            <Viewbox Height="50">
+                <RadioButton x:Name="Rb1" HorizontalAlignment="Center" Margin="0,2,0,0" GroupName="RbHoraire" Content="MAT"/>
+            </Viewbox>
+            <Viewbox Height="50" Grid.Column="1">
+                <RadioButton x:Name="Rb2" HorizontalAlignment="Center" Margin="0,2,0,0" GroupName="RbHoraire" Content="SOI"/>
+            </Viewbox>
+            <Viewbox Height="50" Grid.Column="2">
+                <RadioButton x:Name="Rb3" HorizontalAlignment="Center" Margin="0,2,0,0" GroupName="RbHoraire" Click="Rb3_Rb5_OnClick" Content="NUI"/>
+            </Viewbox>
+            <Viewbox Height="50" Grid.Column="3">
+                <RadioButton x:Name="Rb4" HorizontalAlignment="Center" Margin="0,2,0,0" GroupName="RbHoraire" Content="WE1"/>
+            </Viewbox>
+            <Viewbox Height="50" Grid.Column="4">
+                <RadioButton x:Name="Rb5" HorizontalAlignment="Center" Margin="0,2,0,0" GroupName="RbHoraire" Click="Rb3_Rb5_OnClick" Content="WE2"/>
+            </Viewbox>
         </Grid>
-        
-        <AdornerDecorator Grid.Row="2">
+
+        <AdornerDecorator Grid.Row="2" Height="55">
             <ComboBox Name="CbChoixSecteur" Loaded="FrameworkElement_OnLoaded"
                   ItemsSource="{Binding CurrentSect}"
                   VerticalContentAlignment="Center"
                   DisplayMemberPath="Code"
                   SelectionChanged="UCPresenceCtrl_OnChanged"
-                  Margin="0,5,0,0">
+                  Margin="0,5"
+                      Height="45" FontSize="30">
                 <utils:WatermarkService.Watermark>
-                    <TextBlock>Selectionner le secteur ...</TextBlock>
+                    <TextBlock FontSize="25">Selectionner le secteur ...</TextBlock>
                 </utils:WatermarkService.Watermark>
             </ComboBox>
         </AdornerDecorator>
+        
         <ScrollViewer Grid.Row="3" VerticalScrollBarVisibility="Auto" >
-            <view:UCPresence x:Name="UCPresenceCtrl" VerticalContentAlignment="Top" Height="Auto" Width="Auto" RenderTransformOrigin="0.5,0.5"/>
-        </ScrollViewer>
-        <Button Name="BtnConfirmerSelect" Grid.Row="4" Content="Valider la saisie" FontSize="18" Click="BtnConfirmerSelect_OnClick"/>
+            <Viewbox VerticalAlignment="Top">
+                <view:UCPresence Background="Black" x:Name="UCPresenceCtrl" VerticalContentAlignment="Top" Height="Auto" Width="Auto" RenderTransformOrigin="0.5,0.5"/>
+            </Viewbox>
+        </ScrollViewer> 
+        <Button Background="LightSteelBlue" Name="BtnConfirmerSelect" Grid.Row="4" Content="Valider la saisie" FontSize="50" FontWeight="Bold" Click="BtnConfirmerSelect_OnClick"/>
     </Grid>
 </Window>

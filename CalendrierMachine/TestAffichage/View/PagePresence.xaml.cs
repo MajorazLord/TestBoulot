@@ -152,11 +152,18 @@ namespace TestAffichage.View
                 if (MainWindow.IsConnected())
                 {
                     resultat = DataBase.VerifAddOrUpdate(saisieToSave);
-                    bool res = DataBase.SaveSaisieVMToBDD_TR(saisieToSave, resultat);
+                    bool res = DataBase.SaveSaisieVMToBDD_TR(saisieToSave, resultat, true);
 
                     if (res)
                     {
-                        MessageBox.Show("Saisie Sauvegardée !", "Sauvegarde Reussi", MessageBoxButton.OK, MessageBoxImage.None);                 
+                        DataBase.SaveSaisieVMToBDD_TR(saisieToSave, resultat, false);
+                        MessageBox.Show("Saisie Sauvegardée !", "Sauvegarde Reussi", MessageBoxButton.OK,
+                            MessageBoxImage.None);
+                    }
+                    else
+                    { 
+                        MessageBox.Show("Sauvegarde de la saisie annulée !", "Sauvegarde Annulée", MessageBoxButton.OK,
+                            MessageBoxImage.None);
                     }
                 }
                 else
